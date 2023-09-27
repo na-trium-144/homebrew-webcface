@@ -2,7 +2,7 @@ class Webcface < Formula
   desc "Web-based RPC & UI Library"
   homepage "https://github.com/na-trium-144/webcface"
   url "https://github.com/na-trium-144/webcface/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "71791c3710ab14c9efefd2af77f87a4ec64a57b1aaf6b38d452a4c8fbac78e1e"
+  sha256 "bdf194f60fb8464cfa9e8307115c52796d45fa84899e077763b5fa0559bcadbc"
   license "MIT"
 
   depends_on "cmake" => :build

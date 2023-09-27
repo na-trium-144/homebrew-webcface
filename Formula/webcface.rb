@@ -5,7 +5,7 @@ class Webcface < Formula
   sha256 "bdf194f60fb8464cfa9e8307115c52796d45fa84899e077763b5fa0559bcadbc"
   license "MIT"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "msgpack-cxx"
   depends_on "spdlog"
 

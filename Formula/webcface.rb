@@ -6,7 +6,6 @@ class Webcface < Formula
   license "MIT"
 
   depends_on "cmake" => :build
-  depends_on "git" => :build
   depends_on "msgpack-cxx"
   depends_on "spdlog"
 

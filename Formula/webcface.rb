@@ -13,7 +13,8 @@ class Webcface < Formula
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    system "rmdir", "external/eventpp", "external/cinatra", "external/tclap"
+    require 'fileutils'
+    FileUtils.rmdir(%w(external/eventpp external/cinatra external/tclap))
     system "git", "clone", "https://github.com/wqking/eventpp.git", "external/eventpp"
     system "git", "clone", "https://github.com/qicosmos/cinatra.git", "external/cinatra"
     system "git", "clone", "https://git.code.sf.net/p/tclap/code", "external/tclap"
@@ -33,6 +34,30 @@ class Webcface < Formula
     #
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "#{bin}/program", "-h"
+    system "#{bin}/webcface-server", "-h"
+
+    (testpath/"CMakeLists.txt").write <<EOS
+      cmake_minimum_required(VERSION 3.0)
+      project(hoge)
+      find_package(webcface)
+      add_executable(hoge ${CMAKE_CURRENT_SOURCE_DIR}/main.cc)
+      target_link_libraries(hoge webcface::webcface)
+EOS
+    (testpath/"main.cc").write <<EOS
+      #include <webcface/webcface.h>
+      #include <iostream>
+      #include <thread>
+      #include <chrono>
+      int main(){
+        WebCFace::Client cli("sandbox");
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        cli.logger()->info(WEBCFACE_VERSION);
+        cli.value("aaa") = 123;
+        cli.sync();
+      }
+EOS
+    system "cmake", "-B", "build"
+    system "cmake", "--build", "build"
+
   end
 end

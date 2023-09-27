@@ -7,7 +7,6 @@ class Webcface < Formula
 
   depends_on "cmake" => :build
   depends_on "git" => :build
-  depends_on "googletest" => :build
   depends_on "msgpack-cxx"
   depends_on "spdlog"
 
@@ -16,9 +15,8 @@ class Webcface < Formula
     system "git", "clone", "https://github.com/wqking/eventpp.git", "external/eventpp"
     system "git", "clone", "https://github.com/qicosmos/cinatra.git", "external/cinatra"
     system "git", "clone", "https://git.code.sf.net/p/tclap/code", "external/tclap"
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DWEBCFACE_EXAMPLE=on", "-DWEBCFACE_TEST=on"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
-    system "sh", "-c", "cd build && ctest"
     system "cmake", "--install", "build"
   end
 

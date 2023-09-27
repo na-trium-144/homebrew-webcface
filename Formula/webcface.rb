@@ -5,6 +5,12 @@ class Webcface < Formula
   sha256 "bdf194f60fb8464cfa9e8307115c52796d45fa84899e077763b5fa0559bcadbc"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.0.0"
+    sha256 cellar: :any,                 ventura:      "e2fb47fcfdc86f21ebd0b55661362141839195d16b95390f44d603a3bdf4f255"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a44fc40cbdaf4d571487916d85c3a3a64f39149e3a7704eb3d0bd1db0e86b3c0"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "msgpack-cxx"
   depends_on "spdlog"

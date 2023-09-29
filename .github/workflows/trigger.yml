@@ -37,9 +37,9 @@ jobs:
           branch: update-package
           branch-suffix: timestamp
           delete-branch: true
-          title: '${{ github.event.client_payload.formula }} update for ${{ github.event.client_payload.version }}'
+          title: '${{ github.event.inputs.formula }} update for ${{ github.event.inputs.version }}'
           body: |
             @${{ github.actor }}
             
-            ${{ github.event.client_payload.formula }} update for ${{ github.event.client_payload.version }}
+            ${{ github.event.inputs.formula }} update for ${{ github.event.inputs.version }}
             

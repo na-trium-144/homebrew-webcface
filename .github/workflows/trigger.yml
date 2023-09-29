@@ -1,0 +1,45 @@
+name: Trigger formula update
+# based on https://zenn.dev/uzimaru0000/articles/update-brew-tap
+on:
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: "formula"
+        required: true
+      version:
+        description: "version"
+        required: true
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Update formula
+        run: |
+          file = Formula/${{github.event.client_payload.formula}}.rb
+          echo "file = $file"
+          ver = ${{github.event.client_payload.version}}
+          url = $(grep url $file | head -1 | sed -e 's/url\|[ "]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+/'$ver'/g')
+          echo "new url = $url"
+          sha = $(curl -L $url | sha256sum -b | awk '{print $1}')
+          echo "sha256 = $sha"
+          echo -e "$(head -3 $file)\n  url \"$url\"\n  sha256 \"$sha\"\n$(tail +6 $file)" > $file
+        shell: bash
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Update packages'
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: update-package
+          branch-suffix: timestamp
+          delete-branch: true
+          title: '${{ github.event.client_payload.formula }} update for ${{ github.event.client_payload.version }}'
+          body: |
+            @${{ github.actor }}
+            
+            ${{ github.event.client_payload.formula }} update for ${{ github.event.client_payload.version }}
+            

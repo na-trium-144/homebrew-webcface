@@ -1,8 +1,8 @@
 class WebcfaceWebui < Formula
   desc "UI Application for WebCFace"
   homepage "https://github.com/na-trium-144/webcface-webui"
-  url "https://github.com/na-trium-144/webcface-webui/releases/download/v1.0.1/webcface-webui_1.0.1.tar.gz"
-  sha256 "c570b7a5bcecfcadf589802b5f0415ae2f1c4e44c34df218acdea4ee82d567fc"
+  url "https://github.com/na-trium-144/webcface-webui/releases/download/v1.0.2/webcface-webui_1.0.2.tar.gz"
+  sha256 "edd67d18a73bda522c05de183ba7e2ca70d96a21d92406d9bf63d79b0acccd24"
   license "MIT"
 
   bottle do

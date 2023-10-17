@@ -18,6 +18,7 @@ class WebcfaceTools < Formula
     rmdir(%w[external/tiny-process-library external/tomlplusplus])
     system "git", "clone", "https://gitlab.com/eidheim/tiny-process-library.git", "external/tiny-process-library"
     system "git", "clone", "https://github.com/marzer/tomlplusplus.git", "external/tomlplusplus"
+    system "git", "clone", "https://git.code.sf.net/p/tclap/code", "external/tclap"
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

@@ -1,8 +1,8 @@
 class Webcface < Formula
   desc "Web-based RPC & UI Library"
   homepage "https://github.com/na-trium-144/webcface"
-  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "732eabbb012d9fe9282b1239e082391a87a66284346b8376d1d355733b089915"
+  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "f9874dd9c09f8244f845de5c5fce26464c98db393c0ffaecce3121d19c78ddaf"
   license "MIT"
 
   bottle do

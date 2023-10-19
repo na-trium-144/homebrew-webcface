@@ -16,10 +16,10 @@ class Webcface < Formula
   depends_on "spdlog"
 
   def install
-    rmdir(%w[external/eventpp external/cinatra external/tclap])
+    rmdir(%w[external/eventpp external/cinatra external/cli11])
     system "git", "clone", "https://github.com/wqking/eventpp.git", "external/eventpp"
     system "git", "clone", "https://github.com/qicosmos/cinatra.git", "external/cinatra"
-    system "git", "clone", "https://git.code.sf.net/p/tclap/code", "external/tclap"
+    system "git", "clone", "https://github.com/CLIUtils/CLI11.git", "external/cli11"
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

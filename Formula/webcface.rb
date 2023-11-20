@@ -21,7 +21,7 @@ class Webcface < Formula
     system "git", "clone", "https://github.com/qicosmos/cinatra.git", "external/cinatra"
     system "git", "clone", "https://github.com/chriskohlhoff/asio.git", "external/asio"
     system "git", "clone", "https://github.com/curl/curl.git", "external/curl"
-    system "git", "clone", "--branch", "fix-destructor-io-service", "https://github.com/na-trium-144/Crow.git", \
+    system "git", "clone", "--branch", "fix-destructor-io-service", "https://github.com/na-trium-144/Crow.git",
       "external/crow"
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

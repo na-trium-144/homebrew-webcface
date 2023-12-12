@@ -16,14 +16,7 @@ class Webcface < Formula
   depends_on "spdlog"
 
   def install
-    rmdir(%w[external/eventpp external/cli11 external/asio external/crow external/curl])
-    system "git", "clone", "https://github.com/wqking/eventpp.git", "external/eventpp"
-    system "git", "clone", "https://github.com/CLIUtils/CLI11.git", "external/cli11"
-    system "git", "clone", "https://github.com/chriskohlhoff/asio.git", "external/asio"
-    system "git", "clone", "https://github.com/curl/curl.git", "external/curl"
-    system "git", "clone", "--branch", "fix-destructor-io-service", "https://github.com/na-trium-144/Crow.git",
-      "external/crow"
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DWEBCFACE_DOWNLOAD_WEBUI=off"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

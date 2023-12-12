@@ -15,10 +15,6 @@ class WebcfaceTools < Formula
   depends_on "webcface"
 
   def install
-    rmdir(%w[external/tiny-process-library external/tomlplusplus external/cli11])
-    system "git", "clone", "https://gitlab.com/eidheim/tiny-process-library.git", "external/tiny-process-library"
-    system "git", "clone", "https://github.com/marzer/tomlplusplus.git", "external/tomlplusplus"
-    system "git", "clone", "https://github.com/CLIUtils/CLI11.git", "external/cli11"
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

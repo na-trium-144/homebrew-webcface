@@ -13,6 +13,7 @@ class Webcface < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "msgpack-cxx"
+  depends_on "opencv"
   depends_on "spdlog"
 
   def install

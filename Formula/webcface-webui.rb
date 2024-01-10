@@ -6,9 +6,9 @@ class WebcfaceWebui < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-webui-1.1.0"
-    sha256 cellar: :any_skip_relocation, ventura:      "c1625154c443cd050a3409bd20f3a1d882ee546213f2b331d0359fb71b51e197"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "34d913853faf41b2ded4250f9b4a3815fc61514fc6fe4bddf1d9f9f19669678b"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-webui-1.2.0"
+    sha256 cellar: :any_skip_relocation, ventura:      "4f1fd49900fc4e910928b3df7ca894dec2f0afdb82609107b46b9d009e700d39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "60f17f69a6dc9e5564d36f03384fbfb2d928370f5b974110a1a531220c065219"
   end
 
   def install

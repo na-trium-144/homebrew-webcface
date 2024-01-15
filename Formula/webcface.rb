@@ -6,9 +6,9 @@ class Webcface < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.4.0"
-    sha256 cellar: :any,                 ventura:      "90f3ac14f8b099b63f19716fff104210a0dad731aa028f6662f98558d3a72797"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0133280ca394a3c283e45b8f3f198c801db590915d8a705cc6ae666adf642ae8"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.4.1"
+    sha256 cellar: :any,                 ventura:      "44e1c964d49c04968788ce1422c8bc1bd86fdc543bc0df6bddd77809be2e5377"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ee0945e9af3280ee3d337218f8b3a5f9f35bffa4560a4d173f91a6529fb55784"
   end
 
   depends_on "cmake" => [:build, :test]

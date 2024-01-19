@@ -3,6 +3,7 @@ on:
   push:
 env:
   APP_NAME: "WebCFace WebUI Server.app"
+  TAG: "v1.5.2" # todo: あとでかえる
 jobs:
   build:
     runs-on: macos-13
@@ -25,18 +26,18 @@ jobs:
       working-directory: webcface-webui
     - run: mv webcface-webui/release/mac/*.app "$APP_NAME"
     - name: Setup Homebrew and install webcface
+      working-directory: ${{env.APP_NAME}}/Contents
       run: |
-        git clone https://github.com/Homebrew/brew "$APP_NAME/Contents/homebrew"
-        eval "$($APP_NAME/Contents/homebrew/bin/brew shellenv)"
-        brew update --force --quiet
-        chmod -R go-w "$(brew --prefix)/share/zsh"
-        brew tap na-trium-144/webcface
-        brew install webcface webcface-tools webcface-webui
+        git clone https://github.com/Homebrew/brew homebrew
+        eval "$(./homebrew/bin/brew shellenv)"
+        ./homebrew/bin/brew update --force --quiet
+        chmod -R go-w ./homebrew/share/zsh
+        ./homebrew/bin/brew tap na-trium-144/webcface
+        ./homebrew/bin/brew install webcface webcface-tools webcface-webui
     - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
     - name: Create Tag
       run: |
-        t=$(cat webcface-webui/package.json | grep '"version"' | sed 's/.*"\([0-9].*\)".*/\1/')
-        git tag v${t}
+        git tag v$TAG
     - uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

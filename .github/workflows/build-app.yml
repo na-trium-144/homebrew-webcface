@@ -23,7 +23,7 @@ jobs:
       working-directory: webcface-webui
     - run: npm run ebuild
       working-directory: webcface-webui
-    - run: mv webcface-webui/release/mac-arm64/*.app "$APP_NAME"
+    - run: mv webcface-webui/release/mac/*.app "$APP_NAME"
     - name: Setup Homebrew and install webcface
       run: |
         git clone https://github.com/Homebrew/brew "$APP_NAME/Contents/homebrew"

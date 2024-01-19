@@ -28,8 +28,8 @@ jobs:
     - name: Install webcface
       run: |
         git clone -b 4.8.0 https://github.com/opencv/opencv.git
-        git clone -b 1.5.2 https://github.com/na-trium-144/webcface.git
-        git clone -b 1.3.0 https://github.com/na-trium-144/webcface-tools.git
+        git clone -b v1.5.2 https://github.com/na-trium-144/webcface.git
+        git clone -b v1.3.0 https://github.com/na-trium-144/webcface-tools.git
         cmake -Bbuild_opencv -DCMAKE_BUILD_TYPE=Release "-DCMAKE_INSTALL_PREFIX=$APP_NAME/Contents" opencv
         cmake --build build_opencv -t install
         cmake -Bbuild_webcface -DCMAKE_BUILD_TYPE=Release "-DCMAKE_PREFIX_PATH=$APP_NAME/Contents" "-DCMAKE_INSTALL_PREFIX=$APP_NAME/Contents" webcface

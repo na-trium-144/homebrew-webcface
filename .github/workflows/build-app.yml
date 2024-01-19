@@ -17,7 +17,7 @@ jobs:
       working-directory: webcface-webui/electron/main
       run: |
         sed '2i\
-        process.env.PATH = app.getPath("exe") + "/../homebrew/bin:" + process.env.PATH;
+        process.env.PATH = app.getPath("exe") + "/../bin:" + process.env.PATH;
         ' index.ts > new_index.ts
         mv new_index.ts index.ts
     - run: npm install --prefer-offline --no-audit --maxsockets 1
@@ -25,15 +25,17 @@ jobs:
     - run: npm run ebuild
       working-directory: webcface-webui
     - run: mv webcface-webui/release/mac/*.app "$APP_NAME"
-    - name: Setup Homebrew and install webcface
-      working-directory: ${{env.APP_NAME}}/Contents
+    - name: Install webcface
       run: |
-        git clone https://github.com/Homebrew/brew homebrew
-        eval "$(./homebrew/bin/brew shellenv)"
-        ./homebrew/bin/brew update --force --quiet
-        chmod -R go-w ./homebrew/share/zsh
-        ./homebrew/bin/brew tap na-trium-144/webcface
-        ./homebrew/bin/brew install webcface webcface-tools webcface-webui
+        git clone -b 4.8.0 https://github.com/opencv/opencv.git
+        git clone -b 1.5.2 https://github.com/na-trium-144/webcface.git
+        git clone -b 1.3.0 https://github.com/na-trium-144/webcface-tools.git
+        cmake -Bbuild_opencv -DCMAKE_BUILD_TYPE=Release "-DCMAKE_INSTALL_PREFIX=$APP_NAME/Contents" opencv
+        cmake --build build_opencv -t install
+        cmake -Bbuild_webcface -DCMAKE_BUILD_TYPE=Release "-DCMAKE_PREFIX_PATH=$APP_NAME/Contents" "-DCMAKE_INSTALL_PREFIX=$APP_NAME/Contents" webcface
+        cmake --build build_webcface -t install
+        cmake -Bbuild_tools -DCMAKE_BUILD_TYPE=Release "-DCMAKE_PREFIX_PATH=$APP_NAME/Contents" "-DCMAKE_INSTALL_PREFIX=$APP_NAME/Contents" webcface-tools
+        cmake --build build_tools -t install
     - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
     - name: Create Tag
       run: |

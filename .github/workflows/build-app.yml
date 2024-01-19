@@ -1,0 +1,52 @@
+name: Build WebUI-Server
+on:
+  push: []
+env:
+  - APP_NAME: "WebCFace WebUI Server.app"
+jobs:
+  build:
+    runs-on: macos-13
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - run: git clone https://github.com/na-trium-144/webcface-webui.git
+    - name: Patch source code
+      workdir: webcface-webui/electron/main
+      run: |
+        sed '2i\
+        process.env.PATH = app.getPath("exe") + "/../homebrew/bin:" + process.env.PATH;
+        ' index.ts > new_index.ts
+        mv new_index.ts index.ts
+    - run: npm install --prefer-offline --no-audit --maxsockets 1
+      workdir: webcface-webui
+    - run: npm run ebuild
+      workdir: webcface-webui
+    - run: mv webcface-webui/release/mac-arm64/*.app "$APP_NAME"
+    - name: Setup Homebrew and install webcface
+      run: |
+        git clone https://github.com/Homebrew/brew "$APP_NAME/Contents/homebrew"
+        eval "$($APP_NAME/Contents/homebrew/bin/brew shellenv)"
+        brew update --force --quiet
+        chmod -R go-w "$(brew --prefix)/share/zsh"
+        brew tap na-trium-144/webcface
+        brew install webcface webcface-tools webcface-webui
+    - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
+    - name: Create Tag
+      run: |
+        t=$(cat webcface-webui/package.json | grep '"version"' | sed 's/.*"\([0-9].*\)".*/\1/')
+        git tag v${t}
+    - uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tags: true
+    - name: Release
+      uses: docker://antonyurchenko/git-release:v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ALLOW_EMPTY_CHANGELOG: true
+      with:
+        args: "${APP_NAME}.zip"
+
+

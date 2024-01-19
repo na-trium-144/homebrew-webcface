@@ -1,28 +1,28 @@
 name: Build WebUI-Server
 on:
-  push: []
+  push:
 env:
-  - APP_NAME: "WebCFace WebUI Server.app"
+  APP_NAME: "WebCFace WebUI Server.app"
 jobs:
   build:
     runs-on: macos-13
-  steps:
+    steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
         node-version: 18
     - run: git clone https://github.com/na-trium-144/webcface-webui.git
     - name: Patch source code
-      workdir: webcface-webui/electron/main
+      working-directory: webcface-webui/electron/main
       run: |
         sed '2i\
         process.env.PATH = app.getPath("exe") + "/../homebrew/bin:" + process.env.PATH;
         ' index.ts > new_index.ts
         mv new_index.ts index.ts
     - run: npm install --prefer-offline --no-audit --maxsockets 1
-      workdir: webcface-webui
+      working-directory: webcface-webui
     - run: npm run ebuild
-      workdir: webcface-webui
+      working-directory: webcface-webui
     - run: mv webcface-webui/release/mac-arm64/*.app "$APP_NAME"
     - name: Setup Homebrew and install webcface
       run: |

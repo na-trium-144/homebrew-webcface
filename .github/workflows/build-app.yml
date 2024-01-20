@@ -8,7 +8,6 @@ jobs:
   build:
     runs-on: macos-13
     steps:
-    - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
         node-version: 18
@@ -38,10 +37,23 @@ jobs:
         cmake --build build_tools -t install
         mv install/bin install/lib "$APP_NAME/Contents/"
     - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
+    - uses: actions/upload-artifact@v3
+      with:
+        name: app
+        path: "*.zip"
+  
+  release:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/download-artifact@v3
+      with:
+        name: app
     - name: Create Tag
       uses: EndBug/latest-tag@latest
       with:
-        ref: v${{env.TAG}}
+        ref: ${{env.TAG}}
     - name: Release
       uses: docker://antonyurchenko/git-release:v5
       env:
@@ -49,5 +61,4 @@ jobs:
         ALLOW_EMPTY_CHANGELOG: true
       with:
         args: "${APP_NAME}.zip"
-
 

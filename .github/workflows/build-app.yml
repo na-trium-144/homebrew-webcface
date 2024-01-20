@@ -39,12 +39,9 @@ jobs:
         mv install/bin install/lib "$APP_NAME/Contents/"
     - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
     - name: Create Tag
-      run: |
-        git tag v$TAG
-    - uses: ad-m/github-push-action@master
+      uses: EndBug/latest-tag@latest
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: v${{env.TAG}}
+        ref: v${{env.TAG}}
     - name: Release
       uses: docker://antonyurchenko/git-release:v5
       env:

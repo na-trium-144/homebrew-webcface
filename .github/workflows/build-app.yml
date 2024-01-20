@@ -55,10 +55,10 @@ jobs:
       with:
         ref: ${{env.TAG}}
     - name: Release
-      uses: docker://antonyurchenko/git-release:v5
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ALLOW_EMPTY_CHANGELOG: true
+      uses: ncipollo/release-action@v1
       with:
-        args: "${APP_NAME}.zip"
+        artifacts: "*.zip"
+        makeLatest: true
+        tag: ${{env.TAG}}
+
 

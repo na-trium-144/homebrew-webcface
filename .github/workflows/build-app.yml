@@ -29,7 +29,13 @@ jobs:
         git clone -b 4.8.0 https://github.com/opencv/opencv.git
         git clone -b v1.5.2 https://github.com/na-trium-144/webcface.git
         git clone -b v1.3.0 https://github.com/na-trium-144/webcface-tools.git
-        cmake -Bbuild_opencv -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/install opencv
+        cmake -Bbuild_opencv -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/install \
+          -DOPENCV_FORCE_3RDPARTY_BUILD=ON \
+          -DWITH_TIFF=OFF -DWITH_OPENEXR=OFF -DWITH_PROTOBUF=OFF -DWITH_IMGCODEC_HDR=OFF \
+          -DWITH_IMGCODEC_SUNRASTER=OFF -DWITH_IMGCODEC_PXM=OFF -DWITH_IMGCODEC_PFM=OFF \
+          -DWITH_FLATBUFFERS=OFF -DWITH_OPENCL=OFF \
+          -DBUILD_JAVA=OFF -DBUILD_OBJC=OFF \
+          opencv
         cmake --build build_opencv -t install
         cmake -Bbuild_webcface -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$(pwd)/install -DCMAKE_INSTALL_PREFIX=$(pwd)/install webcface
         cmake --build build_webcface -t install

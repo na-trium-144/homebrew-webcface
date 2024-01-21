@@ -80,3 +80,38 @@ jobs:
         makeLatest: true
         tag: v${{github.event.inputs.version}}
         body: "webcface ${{github.event.inputs.webcface}}, webui ${{github.event.inputs.webui}}, tools ${{github.event.inputs.tools}}, opencv ${{env.OPENCV_VER}}"
+  
+  cask:
+    runs-on: ubuntu-latest
+    needs: [release]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Update formula
+        run: |
+          file=Casks/webcface-webui-server.rb
+          echo "file = $file"
+          ver=${{github.event.inputs.version}}
+          url=$(grep url $file | head -1 | sed -e 's/url\|[ "]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+\(.[0-9]\+\)\?/'$ver'/g')
+          echo "new url = $url"
+          sha=$(curl -L $url | sha256sum -b | awk '{print $1}')
+          echo "sha256 = $sha"
+          echo -e "$(head -1 $file)\n  version \"$ver\"\n  sha256 \"$sha\"\n$(tail +4 $file)" > $file
+        shell: bash
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.REPO_SCOPED_TOKEN }}
+          commit-message: 'Update packages'
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: update-package
+          branch-suffix: timestamp
+          delete-branch: true
+          title: 'webcface-webui-server update for ${{ github.event.inputs.version }}'
+          body: |
+            @${{ github.actor }}
+            
+            webcface-webui-server update for ${{ github.event.inputs.version }}
+            

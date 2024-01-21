@@ -41,7 +41,7 @@ jobs:
         cmake --build build_webcface -t install
         cmake -Bbuild_tools -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$(pwd)/install -DCMAKE_INSTALL_PREFIX=$(pwd)/install webcface-tools
         cmake --build build_tools -t install
-        mv install/bin install/lib "$APP_NAME/Contents/"
+        mv install/bin install/lib install/share "$APP_NAME/Contents/"
     - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
     - uses: actions/upload-artifact@v3
       with:

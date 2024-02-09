@@ -92,7 +92,7 @@ jobs:
           file=Casks/webcface-webui-server.rb
           echo "file = $file"
           ver=${{github.event.inputs.version}}
-          url=$(grep url $file | head -1 | sed -e 's/url\|[ "]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+\(.[0-9]\+\)\?/'$ver'/g')
+          url="https://github.com/na-trium-144/homebrew-webcface/releases/download/v${{github.event.inputs.version}}/WebCFace.WebUI.Server.app.zip"
           echo "new url = $url"
           sha=$(curl -L $url | sha256sum -b | awk '{print $1}')
           echo "sha256 = $sha"

@@ -1,8 +1,8 @@
 class WebcfaceTools < Formula
   desc "WebCFace Client Applications"
   homepage "https://github.com/na-trium-144/webcface-tools"
-  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "f5918c7d018a4b7c70d4ea6481d15c65ba9954eaf998845d720494e48a76181c"
+  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "c6a41939696781c907927ce9225518c43fa9e0b10cdd0f0ae57b8e259349e749"
   license "MIT"
 
   bottle do

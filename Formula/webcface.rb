@@ -6,11 +6,11 @@ class Webcface < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.6.2"
-    sha256 cellar: :any,                 arm64_sonoma: "a4355f1f565844ba5ad107c3bad597a86788aa7351deae5d9423412fd3912103"
-    sha256 cellar: :any,                 ventura:      "b0403fccf15e009be0b76943562ea230393dba315eccb5e0b5bc5441d6507709"
-    sha256 cellar: :any,                 monterey:     "c4a6c9c31c87188b5fb9e3dbac80881ccb9215a8216efb5a08ea3953a17ad3ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3b40e86f8b0e2be79a081affd68ef0e89e56c34782f546b938940828347510c4"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.6.3"
+    sha256 cellar: :any,                 arm64_sonoma: "c35184ec047b6ace380bc9f38b72aa0862939a6d4784a525cb976ccddbed21bb"
+    sha256 cellar: :any,                 ventura:      "3ba4fa67569c4cb2d21d2c3b362c0919ab974242badd6ac204085b4d13ae2b26"
+    sha256 cellar: :any,                 monterey:     "0a11802b093debc9dd3f8f121e5c4ba670fca28837ddad72af20eb2a6b2e83d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4334b420326b5acb849ec6e6f454cfd40f2fb5af0af62a440e6e07d849f6728d"
   end
 
   depends_on "cmake" => [:build, :test]

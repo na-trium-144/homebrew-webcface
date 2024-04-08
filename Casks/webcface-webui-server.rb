@@ -1,6 +1,6 @@
 cask "webcface-webui-server" do
-  version "1.9.1"
-  sha256 "5cf31eecce48e2f2150ed9b1231672e3825f76986506c73a39a5fcec5e34444c"
+  version "1.10.0"
+  sha256 "f8187ef459f73044ad94e2eb755a069b7264a44f99ef54e55ee1b3518a27a549"
 
   url "https://github.com/na-trium-144/homebrew-webcface/releases/download/v#{version}/WebCFace.WebUI.Server.app.zip"
   name "WebCFace WebUI Server"

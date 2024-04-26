@@ -19,7 +19,8 @@ class Webcface < Formula
   depends_on "spdlog"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DWEBCFACE_DOWNLOAD_WEBUI=off"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DWEBCFACE_DOWNLOAD_WEBUI=off",
+      "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

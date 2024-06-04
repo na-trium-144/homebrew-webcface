@@ -1,13 +1,13 @@
 class CrowUnixSocket < Formula
-  desc "A Fast and Easy to use microframework for the web."
+  desc "Fast and Easy to use microframework for the web"
   homepage "https://crowcpp.org/"
   url "https://github.com/na-trium-144/Crow.git",
     revision: "5f5372ed80860dfcef788972bb0fd3972f715842"
   version "1.2.0-1"
   license "BSD-3-Clause"
 
-  depends_on "asio"
   depends_on "cmake" => [:build, :test]
+  depends_on "asio"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCROW_BUILD_EXAMPLES=OFF", "-DCROW_BUILD_TESTS=OFF"

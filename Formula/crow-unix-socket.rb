@@ -2,7 +2,7 @@ class CrowUnixSocket < Formula
   desc "A Fast and Easy to use microframework for the web."
   homepage "https://crowcpp.org/"
   url "https://github.com/na-trium-144/Crow.git",
-    revision: "f8aece33d89f9287ebcb545d84e04ef6d7e3aab6"
+    revision: "5f5372ed80860dfcef788972bb0fd3972f715842"
   version "1.2.0-1"
   license "BSD-3-Clause"
 
@@ -19,7 +19,7 @@ class CrowUnixSocket < Formula
       cmake_minimum_required(VERSION 3.0)
       project(hoge)
       find_package(Crow)
-      add_executable(hoge ${CMAKE_CURRENT_SOURCE_DIR}/main.cc)
+      add_executable(hoge ${CMAKE_CURRENT_SOURCE_DIR}/test.cpp)
       target_link_libraries(hoge Crow::Crow)
     EOS
     (testpath/"test.cpp").write <<~EOS

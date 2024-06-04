@@ -4,8 +4,8 @@ class CurlWs < Formula
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   url "https://curl.se/download/curl-8.8.0.tar.bz2"
   mirror "https://github.com/curl/curl/releases/download/curl-8_8_0/curl-8.8.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.8.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.8.0.tar.bz2"
+  # mirror "http://fresh-center.net/linux/www/curl-8.8.0.tar.bz2"
+  # mirror "http://fresh-center.net/linux/www/legacy/curl-8.8.0.tar.bz2"
   sha256 "40d3792d38cfa244d8f692974a567e9a5f3387c547579f1124e95ea2a1020d0d"
   license "curl"
 
@@ -32,7 +32,7 @@ class CurlWs < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_macos
+  keg_only "conflict with curl"
 
   depends_on "pkg-config" => :build
   depends_on "brotli"

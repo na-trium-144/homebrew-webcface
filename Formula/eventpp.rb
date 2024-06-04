@@ -5,6 +5,14 @@ class Eventpp < Formula
   sha256 "d87aba67223fd9aced2ba55eb82bd534007e43e1b919106a53fcd3070fa125ea"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/eventpp-0.1.3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "74f924f30d123a2844a57b187093bc4824f230df3c65346a66563dbadf08c7b6"
+    sha256 cellar: :any_skip_relocation, ventura:      "b92376ba0616aa7ef41c769c4348f1e6d2f9c6d2d8d816876229c253c2763b71"
+    sha256 cellar: :any_skip_relocation, monterey:     "a1b76c409f0628542e1d6eb67cc8362a5115348d380a1ac3049c3c727a80884b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0ffd61ab90c33f886c8f9f01c1226c5e58277e93b47fe8e1d7ec696616ed41d7"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   def install

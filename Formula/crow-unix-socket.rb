@@ -18,6 +18,7 @@ class CrowUnixSocket < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.0)
       project(hoge)
+      set(CMAKE_CXX_STANDARD 11)
       find_package(Crow)
       add_executable(hoge ${CMAKE_CURRENT_SOURCE_DIR}/test.cpp)
       target_link_libraries(hoge Crow::Crow)

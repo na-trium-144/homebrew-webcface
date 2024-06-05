@@ -6,6 +6,14 @@ class CrowUnixSocket < Formula
   version "1.2.0-1"
   license "BSD-3-Clause"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/crow-unix-socket-1.2.0-1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "015b7e4094a553ada6485c44b5b41bc5a6873dbedf7d99c8da13620377a17cd0"
+    sha256 cellar: :any_skip_relocation, ventura:      "9775270a4d4f0dbb76c9b9804748cde06f182dd81ede9d41075210f4fc2c06ed"
+    sha256 cellar: :any_skip_relocation, monterey:     "a2957a55590f267fc43b361a5e86221d07276873199898e269f447e75057cd85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "79d15f4228c8bfae47ab27638c67834648a98a904534ac1762c2765cb8cd8673"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "asio"
 

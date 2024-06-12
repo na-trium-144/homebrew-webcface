@@ -4,6 +4,7 @@ class WebcfaceTools < Formula
   url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v1.4.4.tar.gz"
   sha256 "217d85544217e353b4bcaa4f2dfc3379602f12eac1c26af3c7a5178f36c0418d"
   license "MIT"
+  revision 1
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-1.4.4"

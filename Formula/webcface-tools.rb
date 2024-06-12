@@ -18,7 +18,7 @@ class WebcfaceTools < Formula
   depends_on "webcface"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF", "-DHOMEBREW_ALLOW_FETCHCONTENT=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

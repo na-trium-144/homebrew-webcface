@@ -20,7 +20,7 @@ class Webcface < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DWEBCFACE_DOWNLOAD_WEBUI=off",
-      "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF"
+      "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF", "-DHOMEBREW_ALLOW_FETCHCONTENT=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

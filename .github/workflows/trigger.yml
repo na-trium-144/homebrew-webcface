@@ -17,17 +17,17 @@ jobs:
         uses: actions/checkout@v3
       - name: Update formula
         run: |
-          file=Formula/${{github.event.inputs.formula}}.rb
+          file="Formula/${{github.event.inputs.formula}}.rb"
           echo "file = $file"
-          ver=${{github.event.inputs.version}}
-          url=$(grep url $file | head -1 | sed -e 's/url\|[ "]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+/'$ver'/g')
+          ver="${{github.event.inputs.version}}"
+          url="$(grep url "$file" | head -1 | sed -e 's/url\|[ \"]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+/'"$ver"'/g')"
           echo "new url = $url"
-          sha=$(curl -L $url | sha256sum -b | awk '{print $1}')
+          sha="$(curl -L "$url" | sha256sum -b | awk '{print $1}')"
           echo "sha256 = $sha"
-          echo -e "$(head -3 $file)\n  url \"$url\"\n  sha256 \"$sha\"\n$(tail +6 $file)" > $file
+          echo -e "$(head -3 "$file")\n  url \"$url\"\n  sha256 \"$sha\"\n$(tail +6 "$file")" > "$file"
         shell: bash
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.REPO_SCOPED_TOKEN }}
           commit-message: 'Update packages'

@@ -39,10 +39,10 @@ jobs:
     - run: mv webcface-webui/release/mac/*.app "$APP_NAME"
     - name: Install webcface
       run: |
-        git clone -b ${{env.OPENCV_VER}} https://github.com/opencv/opencv.git
-        git clone -b v${{github.event.inputs.webcface}} https://github.com/na-trium-144/webcface.git
-        git clone -b v${{github.event.inputs.tools}} https://github.com/na-trium-144/webcface-tools.git
-        cmake -Bbuild_opencv -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(pwd)/install \
+        git clone -b "${{env.OPENCV_VER}}" https://github.com/opencv/opencv.git
+        git clone -b "v${{github.event.inputs.webcface}}" https://github.com/na-trium-144/webcface.git
+        git clone -b "v${{github.event.inputs.tools}}" https://github.com/na-trium-144/webcface-tools.git
+        cmake -Bbuild_opencv -DCMAKE_BUILD_TYPE=Release "-DCMAKE_INSTALL_PREFIX=$(pwd)/install" \
           -DOPENCV_FORCE_3RDPARTY_BUILD=ON \
           -DWITH_TIFF=OFF -DWITH_OPENEXR=OFF -DWITH_PROTOBUF=OFF -DWITH_IMGCODEC_HDR=OFF \
           -DWITH_IMGCODEC_SUNRASTER=OFF -DWITH_IMGCODEC_PXM=OFF -DWITH_IMGCODEC_PFM=OFF \
@@ -50,9 +50,9 @@ jobs:
           -DBUILD_JAVA=OFF -DBUILD_OBJC=OFF \
           opencv
         cmake --build build_opencv -t install
-        cmake -Bbuild_webcface -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$(pwd)/install -DCMAKE_INSTALL_PREFIX=$(pwd)/install webcface
+        cmake -Bbuild_webcface -DCMAKE_BUILD_TYPE=Release "-DCMAKE_PREFIX_PATH=$(pwd)/install" "-DCMAKE_INSTALL_PREFIX=$(pwd)/install" webcface
         cmake --build build_webcface -t install
-        cmake -Bbuild_tools -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$(pwd)/install -DCMAKE_INSTALL_PREFIX=$(pwd)/install webcface-tools
+        cmake -Bbuild_tools -DCMAKE_BUILD_TYPE=Release "-DCMAKE_PREFIX_PATH=$(pwd)/install" "-DCMAKE_INSTALL_PREFIX=$(pwd)/install" webcface-tools
         cmake --build build_tools -t install
         mv install/* "$APP_NAME/Contents/"
     - run: zip -r "${APP_NAME}.zip" "$APP_NAME"
@@ -99,7 +99,7 @@ jobs:
           echo -e "$(head -1 $file)\n  version \"$ver\"\n  sha256 \"$sha\"\n$(tail +4 $file)" > $file
         shell: bash
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.REPO_SCOPED_TOKEN }}
           commit-message: 'Update packages'

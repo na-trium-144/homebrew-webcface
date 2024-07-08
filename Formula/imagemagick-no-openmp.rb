@@ -39,11 +39,12 @@ class ImagemagickNoOpenmp < Formula
     depends_on "gettext"
     depends_on "glib"
     depends_on "imath"
-    depends_on "libomp"
   end
 
   on_linux do
+    depends_on "jbigkit"
     depends_on "libx11"
+    depends_on "libxext"
   end
 
   skip_clean :la

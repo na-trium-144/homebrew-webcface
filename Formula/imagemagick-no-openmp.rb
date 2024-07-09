@@ -11,6 +11,14 @@ class ImagemagickNoOpenmp < Formula
     regex(/href=.*?ImageMagick[._-]v?(\d+(?:\.\d+)+-\d+)\.t/i)
   end
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/imagemagick-no-openmp-7.1.1-34"
+    sha256 arm64_sonoma: "b71ec39c7af5eeae2c6fd450fa2043fb29207b78e100588ab18cf7c2f1b76ede"
+    sha256 ventura:      "ce3f7f2735fc007d32467445d0c19b5cec1f28421560a347e5322ae605b63499"
+    sha256 monterey:     "d0df29854e8ad2f8ea7c5c276402be7a860a85a116cb370233ce2716a56d960c"
+    sha256 x86_64_linux: "b639fb154e1f62195c27c87c407d7f80ae642327c1188ff118e33bed17ed3d6e"
+  end
+
   keg_only "homebrew-core provides imagemagick"
 
   depends_on "pkg-config" => :build

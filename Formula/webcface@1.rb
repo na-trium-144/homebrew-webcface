@@ -6,14 +6,6 @@ class WebcfaceAT1 < Formula
   license "MIT"
   revision 2
 
-  bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.11.4_1"
-    sha256 cellar: :any,                 arm64_sonoma: "82283e20e5cc690c4962c25482eebc7a64835c3d0a890f960e5c7f69199c6128"
-    sha256 cellar: :any,                 ventura:      "479e399a55df9a505c15f489a521aefd34052da460a5f0ac89fa43884417c1e4"
-    sha256 cellar: :any,                 monterey:     "4e00190e49202dde55d6badb4e72288a1c4abcbdb4877ab2bf312dbcb0d2c4ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0759ebc2f7e95a68f467c292e8a28b41ede85cc7e3cefa3045c63c31ae11b20d"
-  end
-
   keg_only :versioned_formula
   depends_on "cmake" => [:build, :test]
   depends_on "msgpack-cxx"
@@ -33,7 +25,7 @@ class WebcfaceAT1 < Formula
     (testpath/"CMakeLists.txt").write <<EOS
       cmake_minimum_required(VERSION 3.0)
       project(hoge)
-      find_package(webcface)
+      find_package(webcface 1)
       add_executable(hoge ${CMAKE_CURRENT_SOURCE_DIR}/main.cc)
       target_link_libraries(hoge webcface::webcface)
 EOS
@@ -50,7 +42,7 @@ EOS
         cli.sync();
       }
 EOS
-    system "cmake", "-B", "build"
+    system "cmake", "-B", "build", "-DCMAKE_PREFIX_PATH=#{prefix}"
     system "cmake", "--build", "build"
   end
 end

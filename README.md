@@ -1,20 +1,26 @@
 # Na-trium-144 Webcface
 
-* WebCFaceをhomebrewでいんすとーるするformulaとcaskを管理するリポジトリです。
-* WebUI(Server Mode)をMac用にAppとしてビルドしてリリースするリポジトリでもあります。
+* WebCFaceをhomebrewでインストールするformula <del>とcask</del> を管理するリポジトリです。
+* ver2以降homebrewではなく
 
 ## How do I install these formulae?
 ```sh
 brew tap na-trium-144/webcface
 ```
 
-### WebCFace Library and CLI Tools
+### WebCFace ver2 Library and CLI Tools
 `brew install webcface webcface-webui webcface-tools`
 
+### WebCFace ver1
+`brew install webcface@1`
+
+<!-- 
 ### WebCFace WebUI-Server App Bundle (for MacOS)
 `brew install --cask webcface-webui-server`
 Or download directory from [Releases](https://github.com/na-trium-144/homebrew-webcface/releases) of this repository.
+-->
 
+<!--
 ## update formula
 [Trigger formula update](https://github.com/na-trium-144/homebrew-webcface/actions/workflows/trigger.yml)のActionの引数にformula名とversionを入れてWorkflowを実行するとprができる
 
@@ -22,3 +28,4 @@ Or download directory from [Releases](https://github.com/na-trium-144/homebrew-w
 
 ## build app bundle
 [Build WebUI-Server](https://github.com/na-trium-144/homebrew-webcface/actions/workflows/build-app.yml)のActionの引数にバージョンを入れて実行するとreleaseとprができる
+ -->

@@ -4,7 +4,7 @@ class WebcfaceTools < Formula
   url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v1.4.5.tar.gz"
   sha256 "a2647fb28c862cef7954fac58bc2954990f1f4b3ecd77dd2b64aa3548e49c9d2"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-1.4.5_1"
@@ -15,7 +15,7 @@ class WebcfaceTools < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "webcface"
+  depends_on "webcface@1"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,

@@ -1,10 +1,10 @@
-class Webcface < Formula
+class WebcfaceAT1 < Formula
   desc "Web-based RPC & UI Library"
   homepage "https://github.com/na-trium-144/webcface"
   url "https://github.com/na-trium-144/webcface/archive/refs/tags/v1.11.4.tar.gz"
   sha256 "3db99e275d0fdb9ca7652e87086e63c031c2fd726a02f9250c1663fc72c3d196"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-1.11.4_1"

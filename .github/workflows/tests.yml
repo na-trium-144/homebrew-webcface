@@ -43,11 +43,11 @@ jobs:
           name: bottles
           path: '*.bottle.*'
 
-  cask:
-    runs-on: macos-13
-    steps:
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-      - run: brew install webcface-webui-server
+  # cask:
+  #   runs-on: macos-13
+  #   steps:
+  #     - name: Set up Homebrew
+  #       id: set-up-homebrew
+  #       uses: Homebrew/actions/setup-homebrew@master
+  #     - run: brew install webcface-webui-server
 

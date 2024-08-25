@@ -14,6 +14,7 @@ class WebcfaceAT1 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0759ebc2f7e95a68f467c292e8a28b41ede85cc7e3cefa3045c63c31ae11b20d"
   end
 
+  keg_only :versioned_formula
   depends_on "cmake" => [:build, :test]
   depends_on "msgpack-cxx"
   depends_on "opencv"

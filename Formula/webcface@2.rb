@@ -1,8 +1,8 @@
 class WebcfaceAT2 < Formula
   desc "Web-based IPC & Dashboard-like UI"
   homepage "https://na-trium-144.github.io/webcface/"
-  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "d011b21ca6cdd458439a4991ec11d1aff075561c64740c5c116b994f9dd9ad13"
+  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "68f6c5b95027490c3ff9284410ab5e5a571870dff3dbeedb43aa605ffeb9edb8"
   license "MIT"
 
   depends_on "asio" => :build
@@ -16,11 +16,11 @@ class WebcfaceAT2 < Formula
   depends_on "utf8cpp" => :build
   depends_on "na-trium-144/webcface/curl-ws"
   depends_on "na-trium-144/webcface/imagemagick-no-openmp"
-  depends_on "opencv"
   depends_on "spdlog"
 
   def install
-    system "meson", "setup", "build", *std_meson_args, "-Dtests=disabled", "-Ddownload_webui=disabled"
+    system "meson", "setup", "build", *std_meson_args,
+      "-Dtests=disabled", "-Ddownload_webui=disabled", "-Dcv_examples=disabled"
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

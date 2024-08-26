@@ -1,7 +1,6 @@
 # Na-trium-144 Webcface
 
 * WebCFaceをhomebrewでインストールするformula <del>とcask</del> を管理するリポジトリです。
-* ver2以降homebrewではなく
 
 ## How do I install these formulae?
 ```sh
@@ -9,10 +8,14 @@ brew tap na-trium-144/webcface
 ```
 
 ### WebCFace ver2 Library and CLI Tools
-`brew install webcface webcface-webui webcface-tools`
+```sh
+brew install webcface webcface-webui webcface-tools
+```
 
 ### WebCFace ver1
-`brew install webcface@1`
+```sh
+brew install webcface@1`
+```
 
 <!-- 
 ### WebCFace WebUI-Server App Bundle (for MacOS)

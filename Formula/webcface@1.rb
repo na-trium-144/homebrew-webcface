@@ -6,6 +6,14 @@ class WebcfaceAT1 < Formula
   license "MIT"
   revision 2
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@1-1.11.4_2"
+    sha256 cellar: :any,                 arm64_sonoma: "4347ef563622faee5ddff187a0dd34821cdfdcc839ca24b172bd5f865fdbfb8c"
+    sha256 cellar: :any,                 ventura:      "a3fbd7f4bbe5c30bb9627834b7cd3ded112c7915ebf571aa5b138dc397b9b6f1"
+    sha256 cellar: :any,                 monterey:     "5f9960e09e8d98f73a3dde76a3590d18e910a0ff082e64dd0249dcffcdb9069e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "732612c2208e1928fb60a15b7ed0605bbebedfdd9b4e1fe55ef47b5d86717f6b"
+  end
+
   keg_only :versioned_formula
   depends_on "cmake" => [:build, :test]
   depends_on "msgpack-cxx"

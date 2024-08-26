@@ -14,7 +14,7 @@ brew install webcface webcface-webui webcface-tools
 
 ### WebCFace ver1
 ```sh
-brew install webcface@1`
+brew install webcface@1
 ```
 
 <!-- 

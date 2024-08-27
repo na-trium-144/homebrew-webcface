@@ -6,7 +6,7 @@ class TinyProcessLibrary < Formula
   version "2.0.4-28-g6166ba5"
   license "MIT"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"

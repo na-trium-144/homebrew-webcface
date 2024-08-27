@@ -6,7 +6,7 @@ class FtxuiStatic < Formula
   version "5.0.0-66-gc5357ac"
   license "MIT"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
 
   def install
     # FTXUIは長期間バージョン番号を更新しないためABIの安定性が保証できないので、

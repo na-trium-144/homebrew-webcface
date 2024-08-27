@@ -1,8 +1,8 @@
 class ImagemagickNoOpenmp < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-34.tar.xz"
-  sha256 "abab52de4b8f0356c05ddee3d3398c147fd9f6c099760f2cb15f3b8168a776c7"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-37.tar.xz"
+  sha256 "685072c6e425faa62b4d0814f9d44b5d62e8b9b5d866efc160180e55a42f7fdb"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 

@@ -6,6 +6,14 @@ class FtxuiStatic < Formula
   version "5.0.0-66-gc5357ac"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/ftxui-static-5.0.0-66-gc5357ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "e7dcbaf61594520c3d58128682b9fd797cfbd17ba72fed06ea4b8b24d87ab133"
+    sha256 cellar: :any_skip_relocation, ventura:      "67b5854eb485328ef4c8948fb8d607eefdb080dd03fb581de0b4afe2a4b19b43"
+    sha256 cellar: :any_skip_relocation, monterey:     "1e5f6c920f5d88ccd621b035bb825932db2e83fecb20eeba8fae2b5f56ec61a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5d635c1dbc475825e1c6a687d611841d3ccc1ef8f3ffce25136af6b6620c522f"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   def install

@@ -1,30 +1,30 @@
 class WebcfaceTools < Formula
   desc "WebCFace Client Applications"
   homepage "https://github.com/na-trium-144/webcface-tools"
-  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v1.4.5.tar.gz"
-  sha256 "a2647fb28c862cef7954fac58bc2954990f1f4b3ecd77dd2b64aa3548e49c9d2"
+  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "8608296b14976db3cc7a089cc6d520c795b045a4a1d217c152997af50546c1d7"
   license "MIT"
-  revision 2
 
-  bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-1.4.5_2"
-    sha256 cellar: :any,                 arm64_sonoma: "696c020df955f104398145ee8591c451a4933c7961dbd117a4d15dc5fb430469"
-    sha256 cellar: :any,                 ventura:      "0812ec67d55bd093f531240be334c5bef44870b233779105eea6f346eb1bcf04"
-    sha256 cellar: :any,                 monterey:     "03f1fcf62bbb4de6b9580dbaa184536315716cbc2567593a73b86b50a87afbc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dcbe2f6cbdd4e45cbd54857c35e323d3976715e8c56f568b30ea80d91453306e"
-  end
-
+  depends_on "cli11" => :build
   depends_on "cmake" => :build
-  depends_on "webcface@1"
+  depends_on "ftxui-static" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "tomlplusplus" => :build
+  depends_on "spdlog"
+  depends_on "tiny-process-library"
+  depends_on "webcface@2"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-      "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF", "-DHOMEBREW_ALLOW_FETCHCONTENT=ON"
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
-    assert_predicate bin/"webcface-launcher", :exist?
+    system "#{bin}/webcface-launcher", "-h"
+    system "#{bin}/webcface-send", "-h"
+    system "#{bin}/webcface-tui", "-h"
+    system "#{bin}/webcface-ls", "-h"
   end
 end

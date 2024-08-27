@@ -15,13 +15,11 @@ class CurlWs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4d0bc66626fc78a034e365084de6f3eeee218cf57b1b184248b1c5e5e5b8785f"
-    sha256 cellar: :any,                 arm64_ventura:  "2cfa6df78dd8930d3325fa3261137b98e7c3203101eda4663547ed35ed4bf1c6"
-    sha256 cellar: :any,                 arm64_monterey: "e39baf7b3ab1c3fe02f3c1dfcd496f19b6cfa5bdab9938785449589592d737df"
-    sha256 cellar: :any,                 sonoma:         "a4869433de9e2a0cd1f62ca9adac05b2556875b232cae3c57fe9f5270102f3a2"
-    sha256 cellar: :any,                 ventura:        "fb8d735358f2a294c47ac76615c930b197cacefc92737b20a0c684d730e27a4c"
-    sha256 cellar: :any,                 monterey:       "cad6d2e6ed9918454c9986c1299c01409cc71212b23c334851b18494aa67e558"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07004c1e8957c22da26a29908759d13ed9a2c11d5b08387ad24b9e599123d97a"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/curl-ws-8.9.1"
+    sha256 cellar: :any,                 arm64_sonoma: "0b57c1de03b1c89b9c6c96c6043d81201ddf9a0af40d883110bd1a48a0baab45"
+    sha256 cellar: :any,                 ventura:      "e18a35be3eafeaefb86cb20f432204ff4789d4cca4ea39926a4151bfa3d9f8a0"
+    sha256 cellar: :any,                 monterey:     "fecc4ea8c657ccf8223749caa4f88b5aecb223ac945fb763e317fe5ed327f6b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3f6fb747d98ace078a11c9efc9040ccf37f76fb034a1e531f1eea81456ecf706"
   end
 
   head do

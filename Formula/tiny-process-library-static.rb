@@ -1,4 +1,4 @@
-class TinyProcessLibrary < Formula
+class TinyProcessLibraryStatic < Formula
   desc "Small platform independent library to create and stop new processes in C++"
   homepage "https://gitlab.com/eidheim/tiny-process-library/"
   url "https://gitlab.com/eidheim/tiny-process-library.git",
@@ -9,7 +9,9 @@ class TinyProcessLibrary < Formula
   depends_on "cmake" => [:build, :test]
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    # tiny-process-libraryはVERSIONもSOVERSIONも指定していないので
+    # (Homebrewのrequirementsには反するが) staticライブラリとしてビルドする。
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

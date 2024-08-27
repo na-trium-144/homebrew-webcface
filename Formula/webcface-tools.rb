@@ -10,9 +10,9 @@ class WebcfaceTools < Formula
   depends_on "ftxui-static" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "tiny-process-library-static" => :build
   depends_on "tomlplusplus" => :build
   depends_on "spdlog"
-  depends_on "tiny-process-library"
   depends_on "webcface@2"
 
   def install

@@ -2,11 +2,11 @@ class CurlWs < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.8.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_8_0/curl-8.8.0.tar.bz2"
-  # mirror "http://fresh-center.net/linux/www/curl-8.8.0.tar.bz2"
-  # mirror "http://fresh-center.net/linux/www/legacy/curl-8.8.0.tar.bz2"
-  sha256 "40d3792d38cfa244d8f692974a567e9a5f3387c547579f1124e95ea2a1020d0d"
+  url "https://curl.se/download/curl-8.9.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_9_1/curl-8.9.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.9.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.9.1.tar.bz2"
+  sha256 "b57285d9e18bf12a5f2309fc45244f6cf9cb14734e7454121099dd0a83d669a3"
   license "curl"
 
   livecheck do
@@ -15,11 +15,13 @@ class CurlWs < Formula
   end
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/curl-ws-8.8.0"
-    sha256 cellar: :any,                 arm64_sonoma: "37d87ad63dae97dce8b86e306a6cd439fb4f6db7e87d17bd0d711bd479e1da9e"
-    sha256 cellar: :any,                 ventura:      "3d390627369c536f304b5bbac1d73eebff29e76b335656ceeb55697f68ff7f26"
-    sha256 cellar: :any,                 monterey:     "e83a10f4853c0e1c08d058bcdcbee8d78dc9bb2f1d410e21680d71fe01c132a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9585e22893cfbc98f65470988e5ed45566f4086a5f09a6a763e86c672a662435"
+    sha256 cellar: :any,                 arm64_sonoma:   "4d0bc66626fc78a034e365084de6f3eeee218cf57b1b184248b1c5e5e5b8785f"
+    sha256 cellar: :any,                 arm64_ventura:  "2cfa6df78dd8930d3325fa3261137b98e7c3203101eda4663547ed35ed4bf1c6"
+    sha256 cellar: :any,                 arm64_monterey: "e39baf7b3ab1c3fe02f3c1dfcd496f19b6cfa5bdab9938785449589592d737df"
+    sha256 cellar: :any,                 sonoma:         "a4869433de9e2a0cd1f62ca9adac05b2556875b232cae3c57fe9f5270102f3a2"
+    sha256 cellar: :any,                 ventura:        "fb8d735358f2a294c47ac76615c930b197cacefc92737b20a0c684d730e27a4c"
+    sha256 cellar: :any,                 monterey:       "cad6d2e6ed9918454c9986c1299c01409cc71212b23c334851b18494aa67e558"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07004c1e8957c22da26a29908759d13ed9a2c11d5b08387ad24b9e599123d97a"
   end
 
   head do
@@ -30,19 +32,19 @@ class CurlWs < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only "conflict with curl"
+  keg_only "this conflict with curl"
 
   depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "openldap"
   depends_on "openssl@3"
   depends_on "rtmpdump"
   depends_on "zstd"
 
   uses_from_macos "krb5"
+  uses_from_macos "openldap"
   uses_from_macos "zlib"
 
   def install
@@ -55,10 +57,7 @@ class CurlWs < Formula
     system "./buildconf" if build.head?
 
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
@@ -80,7 +79,7 @@ class CurlWs < Formula
       "--with-gssapi=#{Formula["krb5"].opt_prefix}"
     end
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     system "make", "install", "-C", "scripts"
     libexec.install "scripts/mk-ca-bundle.pl"
@@ -90,7 +89,7 @@ class CurlWs < Formula
     # Fetch the curl tarball and see that the checksum matches.
     # This requires a network connection, but so does Homebrew in general.
     filename = (testpath/"test.tar.gz")
-    system "#{bin}/curl", "-L", stable.url, "-o", filename
+    system bin/"curl", "-L", stable.url, "-o", filename
     filename.verify_checksum stable.checksum
 
     system libexec/"mk-ca-bundle.pl", "test.pem"

@@ -1,8 +1,8 @@
 class WebcfaceAT2 < Formula
   desc "Web-based IPC & Dashboard-like UI"
   homepage "https://na-trium-144.github.io/webcface/"
-  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.2.1.tar.gz"
-  sha256 "129f0206f3f26958bdbd0546b511b44045b398de4e0801be3dc74b0f7541f47a"
+  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "e3ef11fe9178f9d7ed88acd647de54a77b9708ff05c3650ccd2a9757e10b4b60"
   license "MIT"
 
   bottle do

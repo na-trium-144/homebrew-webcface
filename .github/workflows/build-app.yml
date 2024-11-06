@@ -86,7 +86,7 @@ jobs:
     needs: [release]
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Update formula
         run: |
           file=Casks/webcface-webui-server.rb

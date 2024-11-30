@@ -6,10 +6,10 @@ class WebcfaceAT2 < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.5.0"
-    sha256 cellar: :any, arm64_sonoma: "cb3dbd96468e7df073df9fea441010dd4ede8b2069a31a81c8ffbd776f0affff"
-    sha256 cellar: :any, ventura:      "a79538db7600db8ee43b65e919e4800524720255fc075c543e52ebecfdcd074c"
-    sha256               x86_64_linux: "ca67c6cc6058630324a84b3b7679c3d311e00febef0cac625398ef2a95e5552b"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.5.1"
+    sha256 cellar: :any, arm64_sonoma: "8a7af8324ab2561304de7406f8af75fa45383960d05eb38b833c5ee7db111199"
+    sha256 cellar: :any, ventura:      "c5fe5355512fe6ed291b9867af0ee825e3d3beb824bdff749efbeecc4ab58f74"
+    sha256               x86_64_linux: "302d956a5ed8801881b72ea1d5f7a56717916c7ebabdcc2c89a5db51626505bd"
   end
 
   depends_on "asio" => :build

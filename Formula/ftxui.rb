@@ -9,7 +9,7 @@ class Ftxui < Formula
   depends_on "cmake" => [:build, :test]
 
   def install
-    File.open('CMakeLists.txt', 'a') do |file|
+    File.open("CMakeLists.txt", "a") do |file|
       file.puts "set_target_properties(screen PROPERTIES VERSION 5.0.0.82)\n"
       file.puts "set_target_properties(dom PROPERTIES VERSION 5.0.0.82)\n"
       file.puts "set_target_properties(component PROPERTIES VERSION 5.0.0.82)\n"

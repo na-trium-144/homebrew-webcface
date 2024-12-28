@@ -9,7 +9,7 @@ class TinyProcessLibrary < Formula
   depends_on "cmake" => [:build, :test]
 
   def install
-    File.open('CMakeLists.txt', 'a') do |file|
+    File.open("CMakeLists.txt", "a") do |file|
       file.puts "set_target_properties(tiny-process-library PROPERTIES VERSION 2.0.4.28)\n"
     end
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"

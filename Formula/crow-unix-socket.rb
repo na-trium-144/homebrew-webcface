@@ -5,6 +5,7 @@ class CrowUnixSocket < Formula
     revision: "5f5372ed80860dfcef788972bb0fd3972f715842"
   version "1.2.0-1"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/crow-unix-socket-1.2.0-1"

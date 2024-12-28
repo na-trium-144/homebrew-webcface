@@ -16,9 +16,10 @@ class WebcfaceTools < Formula
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "tiny-process-library-static" => :build
+  depends_on "tiny-process-library" => :build
   depends_on "ftxui"
   depends_on "spdlog"
+  depends_on "tiny-process-library"
   depends_on "tomlplusplus"
   depends_on "webcface@2"
 

@@ -1,4 +1,4 @@
-class TinyProcessLibraryStatic < Formula
+class TinyProcessLibrary < Formula
   desc "Small platform independent library to create and stop new processes in C++"
   homepage "https://gitlab.com/eidheim/tiny-process-library/"
   url "https://gitlab.com/eidheim/tiny-process-library.git",
@@ -6,20 +6,13 @@ class TinyProcessLibraryStatic < Formula
   version "2.0.4-28-g6166ba5"
   license "MIT"
 
-  bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/tiny-process-library-static-2.0.4-28-g6166ba5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "66f1c04b1500802ecba9e17536ff4161dd0be716a0d4223dd7fdcf189bc110bf"
-    sha256 cellar: :any_skip_relocation, ventura:      "1f2ed7747e4e5f0dbf52fbeb38a9661b815f6b3adfe169176e81d31c5b9afa31"
-    sha256 cellar: :any_skip_relocation, monterey:     "f27101973476bb3b964c1ee58a3740517a5ca4d190ac4dd2adb1382e4f5ce5ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ecf1162d6ffd52016e117984bcbf124ad0edab1d8020a1ada73a67ca74a278a6"
-  end
-
   depends_on "cmake" => [:build, :test]
 
   def install
-    # tiny-process-libraryはVERSIONもSOVERSIONも指定していないので
-    # (Homebrewのrequirementsには反するが) staticライブラリとしてビルドする。
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    File.open('CMakeLists.txt', 'a') do |file|
+      file.puts "set_target_properties(tiny-process-library PROPERTIES VERSION 2.0.4.28)\n"
+    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

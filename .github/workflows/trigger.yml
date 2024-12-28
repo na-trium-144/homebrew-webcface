@@ -26,6 +26,24 @@ jobs:
           echo "sha256 = $sha"
           echo -e "$(head -3 "$file")\n  url \"$url\"\n  sha256 \"$sha\"\n$(tail +6 "$file")" > "$file"
         shell: bash
+      - name: Update curl
+        run: |
+          curl -fL -o Formula/curl-ws.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/c/curl.rb
+          patch Formula/curl-ws.rb ./curl-ws.patch
+      - name: Update imagemagick
+        run: |
+          curl -fL -o Formula/imagemagick-no-openmp.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/i/imagemagick.rb
+          patch Formula/imagemagick-no-openmp.rb ./imagemagick-no-openmp.patch
+      - name: Update ftxui
+        run: |
+          git clone https://github.com/ArthurSonzogni/FTXUI.git
+          ver="$(git -C FTXUI describe --tags)"
+          hash="$(git -C FTXUI rev-parse HEAD)"
+          rm -rf FTXUI
+          ver_short="$(echo $ver | sed -e 's/-\(.*\)-g.*/.\1/')"
+          sed -i 's/revision: ".*"/revision: "'"$hash"'"/' Formula/ftxui.rb
+          sed -i 's/version: ".*"/version: "'"$ver"'"/' Formula/ftxui.rb
+          sed -i 's/ VERSION .*)/ VERSION '$ver_short')/' Formula/ftxui.rb
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:

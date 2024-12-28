@@ -1,6 +1,9 @@
 name: Trigger formula update
 # based on https://zenn.dev/uzimaru0000/articles/update-brew-tap
 on:
+  push:
+    branches:
+      - hoge
   workflow_dispatch:
     inputs:
       formula:
@@ -15,17 +18,17 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: Update formula
-        run: |
-          file="Formula/${{github.event.inputs.formula}}.rb"
-          echo "file = $file"
-          ver="${{github.event.inputs.version}}"
-          url="$(grep url "$file" | head -1 | sed -e 's/url\|[ \"]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+/'"$ver"'/g')"
-          echo "new url = $url"
-          sha="$(curl -L "$url" | sha256sum -b | awk '{print $1}')"
-          echo "sha256 = $sha"
-          echo -e "$(head -3 "$file")\n  url \"$url\"\n  sha256 \"$sha\"\n$(tail +6 "$file")" > "$file"
-        shell: bash
+      # - name: Update formula
+      #   run: |
+      #     file="Formula/${{github.event.inputs.formula}}.rb"
+      #     echo "file = $file"
+      #     ver="${{github.event.inputs.version}}"
+      #     url="$(grep url "$file" | head -1 | sed -e 's/url\|[ \"]//g' | sed -e 's/[0-9]\+.[0-9]\+.[0-9]\+/'"$ver"'/g')"
+      #     echo "new url = $url"
+      #     sha="$(curl -L "$url" | sha256sum -b | awk '{print $1}')"
+      #     echo "sha256 = $sha"
+      #     echo -e "$(head -3 "$file")\n  url \"$url\"\n  sha256 \"$sha\"\n$(tail +6 "$file")" > "$file"
+      #   shell: bash
       - name: Update curl
         run: |
           curl -fL -o Formula/curl-ws.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/c/curl.rb

@@ -12,12 +12,11 @@ class ImagemagickNoOpenmp < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ea562dba64a57da0d95fe2c361ff88768f6909950d0685fc228a440f4c345c8b"
-    sha256 arm64_sonoma:  "f713f0e8aa18acc8614d06b4213b1001487f38618ff2d61c6a9f1a3a7669b626"
-    sha256 arm64_ventura: "e18c49b40f4ca961a0b070d283ac82ed56649ead0ec99cea0e8e5650f7f67284"
-    sha256 sonoma:        "6229daea5b9b91ed5a62e568883bd8ab132bd5f2224024b36845d598565c4536"
-    sha256 ventura:       "5a9c1e94e3280f65ae5addaa961768836db68d97e002015dbb793eb31106d749"
-    sha256 x86_64_linux:  "30e617977216fe9175f0c04b49ebd136fe03a309f8a8fb41c34d290b194408f6"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/imagemagick-no-openmp-7.1.1-43"
+    sha256 arm64_sequoia: "ebfb7c5f7e0a3498b5cc2973e5b29210854445536b0c0f65aade53e0b51e67c4"
+    sha256 arm64_sonoma:  "f5a749812c28105455b66ffe1c911481c6e05ebfe8bbf099a2bef31f427590d2"
+    sha256 ventura:       "023ab630783b414430b1fee1dcb0e20f39e1b7eacf4f82a202547f6c7aeeaeed"
+    sha256 x86_64_linux:  "b459c421bde0fa4bd5f72e286288d972a10b178e34358b67935df9322307dc72"
   end
 
   keg_only "homebrew-core provides imagemagick"

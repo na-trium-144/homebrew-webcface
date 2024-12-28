@@ -6,6 +6,14 @@ class TinyProcessLibrary < Formula
   version "2.0.4-28-g6166ba5"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/tiny-process-library-2.0.4-28-g6166ba5"
+    sha256 cellar: :any,                 arm64_sequoia: "2209bb951b58fe798f39f84ddfcb708dec7af143e9edd56d028c68b037b19d31"
+    sha256 cellar: :any,                 arm64_sonoma:  "03aca76f7f43ca6624852a604a0fcf9d117873d26536f5cc205bdf6f4648767c"
+    sha256 cellar: :any,                 ventura:       "69d86da151fa6fd0e0d0abd90bbb057539cc84e7252b7a0eee6bed9206734142"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e781b154ca0d3107d215304c0b53fda3efe1a830c955964bafedc541803ae084"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   def install

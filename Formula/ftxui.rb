@@ -6,6 +6,14 @@ class Ftxui < Formula
   version "5.0.0-82-g6fafa2d"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/ftxui-5.0.0-82-g6fafa2d"
+    sha256 cellar: :any,                 arm64_sequoia: "064387d98e5f1e3d8af1f8cc452cfa7b2a10b18738d027edc839a12192c4e987"
+    sha256 cellar: :any,                 arm64_sonoma:  "c9ba162858b3125317748f5371afd7fc63e673957b235c42337413f50f7bbc92"
+    sha256 cellar: :any,                 ventura:       "9510c1ba0092bb29ea40f30d4ae29857071788c701cce3e1d8568a6ef1301cca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a156fe807ddece1ee54f6098b1572a2ccd63a574ecf71ff1c35d50b1db8aeea"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   def install

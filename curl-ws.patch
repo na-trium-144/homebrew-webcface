@@ -1,0 +1,25 @@
+--- curl.rb	2024-12-28 23:01:32.156046962 +0900
++++ curl-ws.rb	2024-12-28 23:02:53.901683511 +0900
+@@ -1,4 +1,4 @@
+-class Curl < Formula
++class CurlWs < Formula
+   desc "Get a file from an HTTP, HTTPS or FTP server"
+   homepage "https://curl.se"
+   # Don't forget to update both instances of the version in the GitHub mirror URL.
+@@ -32,7 +32,7 @@
+     depends_on "libtool" => :build
+   end
+ 
+-  keg_only :provided_by_macos
++  keg_only "this conflict with curl"
+ 
+   depends_on "pkgconf" => [:build, :test]
+   depends_on "brotli"
+@@ -72,6 +72,7 @@
+       --without-libpsl
+       --with-zsh-functions-dir=#{zsh_completion}
+       --with-fish-functions-dir=#{fish_completion}
++      --enable-websockets
+     ]
+ 
+     args << if OS.mac?

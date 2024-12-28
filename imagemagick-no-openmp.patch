@@ -1,0 +1,43 @@
+--- imagemagick.rb	2024-12-28 22:55:13.388783540 +0900
++++ imagemagick-no-openmp.rb	2024-12-28 23:00:42.103407738 +0900
+@@ -1,4 +1,4 @@
+-class Imagemagick < Formula
++class ImagemagickNoOpenmp < Formula
+   desc "Tools and libraries to manipulate images in many formats"
+   homepage "https://imagemagick.org/index.php"
+   url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-43.tar.xz"
+@@ -20,6 +20,8 @@
+     sha256 x86_64_linux:  "30e617977216fe9175f0c04b49ebd136fe03a309f8a8fb41c34d290b194408f6"
+   end
+ 
++  keg_only "homebrew-core provides imagemagick"
++
+   depends_on "pkgconf" => :build
+   depends_on "fontconfig"
+   depends_on "freetype"
+@@ -46,7 +48,6 @@
+     depends_on "gettext"
+     depends_on "glib"
+     depends_on "imath"
+-    depends_on "libomp"
+   end
+ 
+   on_linux do
+@@ -83,15 +84,12 @@
+       "--without-fftw",
+       "--without-pango",
+       "--without-wmf",
+-      "--enable-openmp",
++      "--disable-openmp",
+     ]
+     if OS.mac?
+       args += [
+         "--without-x",
+-        # Work around "checking for clang option to support OpenMP... unsupported"
+-        "ac_cv_prog_c_openmp=-Xpreprocessor -fopenmp",
+-        "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
+-        "LDFLAGS=-lomp -lz",
++        "LDFLAGS=-lz",
+       ]
+     end
+ 

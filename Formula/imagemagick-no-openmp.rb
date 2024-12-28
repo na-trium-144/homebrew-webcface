@@ -1,8 +1,8 @@
 class ImagemagickNoOpenmp < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-37.tar.xz"
-  sha256 "685072c6e425faa62b4d0814f9d44b5d62e8b9b5d866efc160180e55a42f7fdb"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-43.tar.xz"
+  sha256 "fa79401342b409b9b7f7d3146bd6595787373811e72be1669c39b58d1489da4f"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
@@ -12,16 +12,17 @@ class ImagemagickNoOpenmp < Formula
   end
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/imagemagick-no-openmp-7.1.1-37"
-    sha256 arm64_sonoma: "1a46a4d75b469065a7d75ece656e0c0dc1132b5af9c64f559e82a4a56463ca1c"
-    sha256 ventura:      "bfca80644a0ba9d86a35e7ff442ed9193fd47e8ba93fbab32d2507d74f23fb50"
-    sha256 monterey:     "a55121a912901300e536274b8ca4bc5d7df05417f1fe14bafa22d4450da7a2cc"
-    sha256 x86_64_linux: "30cbb7f6aad14e58bcd19b5aa8ba46e47dd7737f1ff1aa93dbadc68ce8337e08"
+    sha256 arm64_sequoia: "ea562dba64a57da0d95fe2c361ff88768f6909950d0685fc228a440f4c345c8b"
+    sha256 arm64_sonoma:  "f713f0e8aa18acc8614d06b4213b1001487f38618ff2d61c6a9f1a3a7669b626"
+    sha256 arm64_ventura: "e18c49b40f4ca961a0b070d283ac82ed56649ead0ec99cea0e8e5650f7f67284"
+    sha256 sonoma:        "6229daea5b9b91ed5a62e568883bd8ab132bd5f2224024b36845d598565c4536"
+    sha256 ventura:       "5a9c1e94e3280f65ae5addaa961768836db68d97e002015dbb793eb31106d749"
+    sha256 x86_64_linux:  "30e617977216fe9175f0c04b49ebd136fe03a309f8a8fb41c34d290b194408f6"
   end
 
   keg_only "homebrew-core provides imagemagick"
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
@@ -50,7 +51,6 @@ class ImagemagickNoOpenmp < Formula
   end
 
   on_linux do
-    depends_on "jbigkit"
     depends_on "libx11"
     depends_on "libxext"
   end
@@ -89,15 +89,11 @@ class ImagemagickNoOpenmp < Formula
     if OS.mac?
       args += [
         "--without-x",
-        # Work around "checking for clang option to support OpenMP... unsupported"
-        # "ac_cv_prog_c_openmp=-Xpreprocessor -fopenmp",
-        # "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
-        # "LDFLAGS=-lomp -lz",
         "LDFLAGS=-lz",
       ]
     end
 
-    system "./configure", *std_configure_args, *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

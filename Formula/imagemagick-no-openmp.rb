@@ -51,6 +51,7 @@ class ImagemagickNoOpenmp < Formula
   end
 
   on_linux do
+    depends_on "jbigkit"
     depends_on "libx11"
     depends_on "libxext"
   end

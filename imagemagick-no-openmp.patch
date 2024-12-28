@@ -1,5 +1,5 @@
---- imagemagick.rb	2024-12-28 22:55:13.388783540 +0900
-+++ imagemagick-no-openmp.rb	2024-12-28 23:00:42.103407738 +0900
+--- imagemagick.rb	2024-12-29 01:54:36.849941644 +0900
++++ imagemagick-no-openmp.rb	2024-12-29 01:56:16.574644957 +0900
 @@ -1,4 +1,4 @@
 -class Imagemagick < Formula
 +class ImagemagickNoOpenmp < Formula
@@ -15,7 +15,7 @@
    depends_on "pkgconf" => :build
    depends_on "fontconfig"
    depends_on "freetype"
-@@ -46,7 +48,6 @@
+@@ -46,10 +48,10 @@
      depends_on "gettext"
      depends_on "glib"
      depends_on "imath"
@@ -23,7 +23,11 @@
    end
  
    on_linux do
-@@ -83,15 +84,12 @@
++    depends_on "jbigkit"
+     depends_on "libx11"
+     depends_on "libxext"
+   end
+@@ -83,15 +85,12 @@
        "--without-fftw",
        "--without-pango",
        "--without-wmf",

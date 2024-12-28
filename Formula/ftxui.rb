@@ -2,17 +2,17 @@ class Ftxui < Formula
   desc ":computer: C++ Functional Terminal User Interface. :heart:"
   homepage "https://github.com/ArthurSonzogni/FTXUI"
   url "https://github.com/ArthurSonzogni/FTXUI.git",
-      revision: "c5357acbaa68efb2902db7b9257d3e1d291030d3"
-  version "5.0.0-66-gc5357ac"
+      revision: "6fafa2dfed9e1d5d4e56660206fec7fb8e1af7dd"
+  version "5.0.0-82-g6fafa2d"
   license "MIT"
 
   depends_on "cmake" => [:build, :test]
 
   def install
     File.open('CMakeLists.txt', 'a') do |file|
-      file.puts "set_target_properties(screen PROPERTIES VERSION 5.0.0.66)\n"
-      file.puts "set_target_properties(dom PROPERTIES VERSION 5.0.0.66)\n"
-      file.puts "set_target_properties(component PROPERTIES VERSION 5.0.0.66)\n"
+      file.puts "set_target_properties(screen PROPERTIES VERSION 5.0.0.82)\n"
+      file.puts "set_target_properties(dom PROPERTIES VERSION 5.0.0.82)\n"
+      file.puts "set_target_properties(component PROPERTIES VERSION 5.0.0.82)\n"
     end
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build"

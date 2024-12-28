@@ -11,8 +11,11 @@ class Ftxui < Formula
   def install
     File.open("CMakeLists.txt", "a") do |file|
       file.puts "set_target_properties(screen PROPERTIES VERSION 5.0.0.82)\n"
+      file.puts "set_target_properties(screen PROPERTIES INSTALL_RPATH \"$ORIGIN/;@loader_path/\")\n"
       file.puts "set_target_properties(dom PROPERTIES VERSION 5.0.0.82)\n"
+      file.puts "set_target_properties(dom PROPERTIES INSTALL_RPATH \"$ORIGIN/;@loader_path/\")\n"
       file.puts "set_target_properties(component PROPERTIES VERSION 5.0.0.82)\n"
+      file.puts "set_target_properties(component PROPERTIES INSTALL_RPATH \"$ORIGIN/;@loader_path/\")\n"
     end
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build"

@@ -1,5 +1,5 @@
 class WebcfaceAT2 < Formula
-  desc "Web-based IPC & Dashboard-like UI"
+  desc "Web-based Communication Framework & Dashboard-like UI"
   homepage "https://na-trium-144.github.io/webcface/"
   url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.5.2.tar.gz"
   sha256 "4d757f2fc9e3a5407a3f3e4d01e731115715304a9674283a9d8f10930312c5c3"
@@ -17,12 +17,12 @@ class WebcfaceAT2 < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "meson" => :build
   depends_on "msgpack-cxx" => :build
-  depends_on "na-trium-144/webcface/crow-unix-socket" => :build
+  depends_on "crow-unix-socket" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "utf8cpp" => :build
-  depends_on "na-trium-144/webcface/curl-ws"
-  depends_on "na-trium-144/webcface/imagemagick-no-openmp"
+  depends_on "curl-ws"
+  depends_on "imagemagick-no-openmp"
   depends_on "spdlog"
 
   def install

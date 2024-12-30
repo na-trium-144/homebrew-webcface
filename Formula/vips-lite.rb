@@ -10,6 +10,14 @@ class VipsLite < Formula
     strategy :github_latest
   end
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/vips-lite-8.16.0"
+    sha256 arm64_sequoia: "544d7e412224fb31f565671694f154385881dc1515262d953c890da6157145f6"
+    sha256 arm64_sonoma:  "bf50cdbaa54d46b1ddcc5874d1a3436f304255a944f1a22591bccf95a0abfb60"
+    sha256 ventura:       "a61cb3a5c37913f748d4fab5c560766570c9837dc49aa59775f589d527b161bd"
+    sha256 x86_64_linux:  "ca206a49414056354d58c7b8437b2e35f98aa73cf83ceafc7aa3900c39f3f283"
+  end
+
   keg_only "homebrew-core provides vips"
 
   depends_on "meson" => :build

@@ -34,6 +34,10 @@ jobs:
         run: |
           curl -fL -o Formula/imagemagick-no-openmp.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/i/imagemagick.rb
           patch Formula/imagemagick-no-openmp.rb ./imagemagick-no-openmp.patch
+      - name: Update vips
+        run: |
+          curl -fL -o Formula/vips-lite.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/v/vips.rb
+          patch Formula/vips-lite.rb ./vips-lite.patch
       - name: Update ftxui
         run: |
           git clone https://github.com/ArthurSonzogni/FTXUI.git

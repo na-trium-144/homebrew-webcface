@@ -17,18 +17,13 @@ brew install webcface webcface-webui webcface-tools
 brew install webcface@1
 ```
 
-<!-- 
-### WebCFace WebUI-Server App Bundle (for MacOS)
-`brew install --cask webcface-webui-server`
-Or download directory from [Releases](https://github.com/na-trium-144/homebrew-webcface/releases) of this repository.
--->
+### Other formulae
 
-<!--
-## update formula
-[Trigger formula update](https://github.com/na-trium-144/homebrew-webcface/actions/workflows/trigger.yml)のActionの引数にformula名とversionを入れてWorkflowを実行するとprができる
-
-テストが通ったらpr-pullラベルをつける
-
-## build app bundle
-[Build WebUI-Server](https://github.com/na-trium-144/homebrew-webcface/actions/workflows/build-app.yml)のActionの引数にバージョンを入れて実行するとreleaseとprができる
- -->
+* `crow-unix-socket`: `crow` with unix domain socket support (Older revision of [CrowCpp/Crow#803](https://github.com/CrowCpp/Crow/pull/803))
+* `curl-ws`: `curl` with websocket support
+* `ftxui`: [ArthurSonzogni/FTXUI](https://github.com/ArthurSonzogni/FTXUI) built as shared library
+    * Note that library's ABI version is `5.0.0-(commit number)` so it breaks dependents every time this is updated.
+* `imagemagick-no-openmp`: `imagemagick` without openmp support
+* `tiny-process-library`: [eidheim/tiny-process-library](https://gitlab.com/eidheim/tiny-process-library) built as shared library
+    * Note that library's ABI version is `2.0.x-(commit number)` so it breaks dependents every time this is updated.
+* `vips-lite`: `vips` with minimal features (jpeg, png and webp only)

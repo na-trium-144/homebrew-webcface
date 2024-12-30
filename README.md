@@ -1,6 +1,6 @@
 # Na-trium-144 Webcface
 
-* WebCFaceをhomebrewでインストールするformula <del>とcask</del> を管理するリポジトリです。
+Homebrew tap for [WebCFace](https://github.com/na-trium-144/webcface) version 1 and 2.
 
 ## How do I install these formulae?
 ```sh
@@ -19,8 +19,9 @@ brew install webcface@1
 
 ### Other formulae
 
+No guarantee of stability and compatibility. These can be removed or renamed in future updates without notice.
+
 * `crow-unix-socket`: `crow` with unix domain socket support (Older revision of [CrowCpp/Crow#803](https://github.com/CrowCpp/Crow/pull/803))
-* `curl-ws`: `curl` with websocket support
 * `ftxui`: [ArthurSonzogni/FTXUI](https://github.com/ArthurSonzogni/FTXUI) built as shared library
     * Note that library's ABI version is `5.0.0-(commit number)` so it breaks dependents every time this is updated.
 * `imagemagick-no-openmp`: `imagemagick` without openmp support

@@ -4,7 +4,7 @@ class WebcfaceAT2 < Formula
   url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.5.2.tar.gz"
   sha256 "4d757f2fc9e3a5407a3f3e4d01e731115715304a9674283a9d8f10930312c5c3"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.5.2_1"
@@ -23,7 +23,7 @@ class WebcfaceAT2 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "utf8cpp" => :build
-  depends_on "curl-ws"
+  depends_on "curl"
   depends_on "imagemagick-no-openmp"
   depends_on "spdlog"
 

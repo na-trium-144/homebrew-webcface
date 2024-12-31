@@ -16,6 +16,14 @@ class CurlWs < Formula
     regex(/href=.*?curl[._-]v?(.*?)\.t/i)
   end
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/curl-ws-8.9.1_1"
+    sha256 cellar: :any,                 arm64_sequoia: "9c48a94e65dbc6bcf605985b3513f728b18f7e573688d97e826433d29747fa0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "345b284316a9f932e4836d0b518421feea9c983070fe3a7d0de80207ea3d2f7c"
+    sha256 cellar: :any,                 ventura:       "3898522606e84f5d466634b04c361311151e0068d987221a4f508bf5dce4ee7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1969f88960448e5d5e08c5ea04e14a028a0d96717974f9e05d6f7e785a5bfd3f"
+  end
+
   head do
     url "https://github.com/curl/curl.git", branch: "master"
 

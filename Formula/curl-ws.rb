@@ -9,6 +9,7 @@ class CurlWs < Formula
   sha256 "b57285d9e18bf12a5f2309fc45244f6cf9cb14734e7454121099dd0a83d669a3"
   license "curl"
   revision 1
+  version_scheme 1
 
   livecheck do
     url "https://curl.se/download/"

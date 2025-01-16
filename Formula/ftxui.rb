@@ -7,11 +7,11 @@ class Ftxui < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/ftxui-5.0.0-82-g6fafa2d"
-    sha256 cellar: :any,                 arm64_sequoia: "064387d98e5f1e3d8af1f8cc452cfa7b2a10b18738d027edc839a12192c4e987"
-    sha256 cellar: :any,                 arm64_sonoma:  "c9ba162858b3125317748f5371afd7fc63e673957b235c42337413f50f7bbc92"
-    sha256 cellar: :any,                 ventura:       "9510c1ba0092bb29ea40f30d4ae29857071788c701cce3e1d8568a6ef1301cca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a156fe807ddece1ee54f6098b1572a2ccd63a574ecf71ff1c35d50b1db8aeea"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/ftxui-5.0.0-84-gc89569f"
+    sha256 cellar: :any,                 arm64_sequoia: "761b03e0c929a29f908c2ef4d02c8d8c1e14c7895aff49d31a5a30a7669e7fb2"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ace5edffa6e99919ec6e3e8aeff29d93cf84945393869929c8280e36637352d"
+    sha256 cellar: :any,                 ventura:       "433988dc1bc97527adea9a54de8ffc91460fd3c1d3c28a7320c115defc0d72ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1b15e5995642de84de01b7889f7ca34ea4db6ca36fc83689e5bbaa9d906bc12"
   end
 
   depends_on "cmake" => [:build, :test]

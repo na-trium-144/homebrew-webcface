@@ -11,13 +11,11 @@ class VipsLite < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "d21c54f55b3a51f7a4fce360f996f8363d523b5a52ff37f93788d292e4fda75f"
-    sha256 arm64_sonoma:  "6160ce321b213ed0b4c323d6086742273e2814949943f7fa684b534513965bec"
-    sha256 arm64_ventura: "3f89494aca6ca8dcd2e1067c0ed1e775de4bcf633be4c1499ad1b7ebd0533da4"
-    sha256 sonoma:        "8969af30ed345a9a80215938dd02dae3158d61022cf2cefe8e017e5eb0e3e028"
-    sha256 ventura:       "b4d12ec545298204beeef2722f5dd914268176b5cdb6ece318b50aa578430381"
-    sha256 x86_64_linux:  "7d1acd4661c389afe2b37616d813a542e0b9d0cc58929c4868a5841d42e41815"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/vips-lite-8.16.0"
+    sha256 arm64_sequoia: "544d7e412224fb31f565671694f154385881dc1515262d953c890da6157145f6"
+    sha256 arm64_sonoma:  "bf50cdbaa54d46b1ddcc5874d1a3436f304255a944f1a22591bccf95a0abfb60"
+    sha256 ventura:       "a61cb3a5c37913f748d4fab5c560766570c9837dc49aa59775f589d527b161bd"
+    sha256 x86_64_linux:  "ca206a49414056354d58c7b8437b2e35f98aa73cf83ceafc7aa3900c39f3f283"
   end
 
   keg_only "homebrew-core provides vips"
@@ -86,7 +84,6 @@ class VipsLite < Formula
 
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-
   end
 
   test do

@@ -1,10 +1,9 @@
 class WebcfaceAT2 < Formula
   desc "Web-based Communication Framework & Dashboard-like UI"
   homepage "https://na-trium-144.github.io/webcface/"
-  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.5.2.tar.gz"
-  sha256 "4d757f2fc9e3a5407a3f3e4d01e731115715304a9674283a9d8f10930312c5c3"
+  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.7.0.tar.gz"
+  sha256 "29818d2ecf182d641efc99da1c3e2ba6074f0e867db1d1cceb990ea6046e9144"
   license "MIT"
-  revision 1
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.5.2_1"
@@ -24,8 +23,9 @@ class WebcfaceAT2 < Formula
   depends_on "pkg-config" => :build
   depends_on "utf8cpp" => :build
   depends_on "curl-ws"
-  depends_on "imagemagick-no-openmp"
+  depends_on "fmt"
   depends_on "spdlog"
+  depends_on "vips-lite"
 
   def install
     system "meson", "setup", "build", *std_meson_args,

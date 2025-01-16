@@ -1,10 +1,9 @@
 class WebcfaceTools < Formula
   desc "WebCFace Client Applications"
   homepage "https://github.com/na-trium-144/webcface-tools"
-  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v2.1.3.tar.gz"
-  sha256 "65b4f7a45524004f636bd663f2c84360c469f845c457529d3b1e45eb6877af95"
+  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "0585779ccace442e5a4f118c9bc12013bc33136b4a42083bccb82c4c9329e410"
   license "MIT"
-  revision 1
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-2.1.3_1"
@@ -18,7 +17,7 @@ class WebcfaceTools < Formula
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "tiny-process-library" => :build
+  depends_on "fmt"
   depends_on "ftxui"
   depends_on "spdlog"
   depends_on "tiny-process-library"

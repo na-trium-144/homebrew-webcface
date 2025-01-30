@@ -1,8 +1,8 @@
 class WebcfaceAT2 < Formula
   desc "Web-based Communication Framework & Dashboard-like UI"
   homepage "https://na-trium-144.github.io/webcface/"
-  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "29818d2ecf182d641efc99da1c3e2ba6074f0e867db1d1cceb990ea6046e9144"
+  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "050ccbcb37b4f2b5aebec63d02c1893e09f163de791d7b0df6648e0ac00a60af"
   license "MIT"
 
   bottle do

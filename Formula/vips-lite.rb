@@ -86,7 +86,6 @@ class VipsLite < Formula
 
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-
   end
 
   test do

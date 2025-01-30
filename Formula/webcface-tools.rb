@@ -7,11 +7,11 @@ class WebcfaceTools < Formula
   revision 2
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-2.2.0_1"
-    sha256 cellar: :any, arm64_sequoia: "a756a0c6fd73cca44ea3fb77e65e5da98f38362ca6b8f242c0986adc9d3e7d85"
-    sha256 cellar: :any, arm64_sonoma:  "58c44937a1fc9e98a0fdb553d327c3f648198cfc10d9111e2a19dafaaa060608"
-    sha256 cellar: :any, ventura:       "8a01c267af0a1f461fbd706b0f7d8d55c1067220f195822e0f34d12cb1d45eed"
-    sha256               x86_64_linux:  "aec78581195564452eda027d93210aa425208a08e10a57edf6ac55607f13f2a5"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-2.2.0_2"
+    sha256 cellar: :any, arm64_sequoia: "81c6fc1104ab0f6d627739d3d546f76fb0276579e31e258f5ab2448ed790161a"
+    sha256 cellar: :any, arm64_sonoma:  "84b10fb018bb3d9c0fdc8acc552af7c8c305ffe7dd91485234e57eabb99a04b9"
+    sha256 cellar: :any, ventura:       "608d290723441f4b4367d68dee4b46f3ffe7ad58f39cd3ec9dc26d0a69055861"
+    sha256               x86_64_linux:  "a68a9461e0894ab7a38492361221db5b9c14e71d03f73b797e42bea6f9ee49a9"
   end
 
   depends_on "cli11" => :build

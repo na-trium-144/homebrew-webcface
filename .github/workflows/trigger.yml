@@ -28,12 +28,24 @@ jobs:
         shell: bash
       - name: Update imagemagick
         run: |
-          curl -fL -o Formula/imagemagick-no-openmp.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/i/imagemagick.rb
-          patch Formula/imagemagick-no-openmp.rb ./imagemagick-no-openmp.patch
+          curl -fL -o Formula/imagemagick-no-openmp-new.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/i/imagemagick.rb
+          patch Formula/imagemagick-no-openmp-new.rb ./imagemagick-no-openmp.patch
+          if diff <(head -n 10 Formula/imagemagick-no-openmp.rb) <(head -n 10 Formula/imagemagick-no-openmp-new.rb); then
+            echo "No version change in imagemagick"
+            rm Formula/imagemagick-no-openmp-new.rb
+          else
+            mv Formula/imagemagick-no-openmp-new.rb Formula/imagemagick-no-openmp.rb
+          fi
       - name: Update vips
         run: |
-          curl -fL -o Formula/vips-lite.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/v/vips.rb
-          patch Formula/vips-lite.rb ./vips-lite.patch
+          curl -fL -o Formula/vips-lite-new.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/master/Formula/v/vips.rb
+          patch Formula/vips-lite-new.rb ./vips-lite.patch
+          if diff <(head -n 10 Formula/vips-lite.rb) <(head -n 10 Formula/vips-lite-new.rb); then
+            echo "No version change in vips"
+            rm Formula/vips-lite-new.rb
+          else
+            mv Formula/vips-lite-new.rb Formula/vips-lite.rb
+          fi
       - name: Update ftxui
         run: |
           git clone https://github.com/ArthurSonzogni/FTXUI.git

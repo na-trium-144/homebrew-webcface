@@ -4,13 +4,14 @@ class WebcfaceAT2 < Formula
   url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.8.0.tar.gz"
   sha256 "050ccbcb37b4f2b5aebec63d02c1893e09f163de791d7b0df6648e0ac00a60af"
   license "MIT"
+  revision 1
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.8.0"
-    sha256 cellar: :any, arm64_sequoia: "397a688ba1527859502b24f4b97a983bf8e2d73e18b37d0af4896634b9d35e0d"
-    sha256 cellar: :any, arm64_sonoma:  "eb2d656000399b74c910b5489906cb1e08052b4ff45c3782ff2d1fa970be36fa"
-    sha256 cellar: :any, ventura:       "2e9c5c81a519ab3f37afa5d28033d8439d5d5ba34da00e490668a13d22006975"
-    sha256               x86_64_linux:  "9c5ae3f32d4526e577ad4adc1248bcb7994b727f71f707c918f7ade2b23149a6"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.8.0_1"
+    sha256 cellar: :any, arm64_sequoia: "bcdb552cb2ae84bc9427267a6d3f5017976cd2888790796ab4773f12c7c37cb6"
+    sha256 cellar: :any, arm64_sonoma:  "f81f6aa76450ae5945139a38fd2956ceba928dddea5d2039d20898c0415d64ee"
+    sha256 cellar: :any, ventura:       "6b8b523ac311598e008058d4f120550dc5c9db8a1df7eb37649223cf2939acc5"
+    sha256               x86_64_linux:  "9f1030fab4adad811b6670fb970f33a113375a38ada53f0635b86dfc1476ad2f"
   end
 
   depends_on "asio" => :build
@@ -22,7 +23,7 @@ class WebcfaceAT2 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "utf8cpp" => :build
-  depends_on "curl-ws"
+  depends_on "curl"
   depends_on "fmt"
   depends_on "spdlog"
   depends_on "vips-lite"

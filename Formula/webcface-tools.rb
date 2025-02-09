@@ -4,7 +4,6 @@ class WebcfaceTools < Formula
   url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "5d208d89e38cb3d0a29c898c9f788e953aa2e72b49180267bfcab70660a3a8c1"
   license "MIT"
-  revision 2
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-2.2.0_2"
@@ -20,6 +19,7 @@ class WebcfaceTools < Formula
   depends_on "ninja" => :build
   depends_on "fmt"
   depends_on "ftxui"
+  depends_on "sdl2"
   depends_on "spdlog"
   depends_on "tiny-process-library"
   depends_on "tomlplusplus"

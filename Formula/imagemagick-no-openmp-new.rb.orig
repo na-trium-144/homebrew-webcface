@@ -1,4 +1,4 @@
-class ImagemagickNoOpenmp < Formula
+class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
   url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-46.tar.xz"
@@ -20,8 +20,6 @@ class ImagemagickNoOpenmp < Formula
     sha256 arm64_linux:   "83e2b39794196be56deebe7bcbf8d49b7020ac13d67433ffffafafe6a94be3c8"
     sha256 x86_64_linux:  "e6bca27edaa9037180a230bed7ff0ef84b82fa909402714f21f2e96513b9cc70"
   end
-
-  keg_only "homebrew-core provides imagemagick"
 
   depends_on "pkgconf" => :build
   depends_on "fontconfig"
@@ -49,10 +47,10 @@ class ImagemagickNoOpenmp < Formula
     depends_on "gettext"
     depends_on "glib"
     depends_on "imath"
+    depends_on "libomp"
   end
 
   on_linux do
-    depends_on "jbigkit"
     depends_on "libx11"
     depends_on "libxext"
   end
@@ -86,12 +84,15 @@ class ImagemagickNoOpenmp < Formula
       "--without-fftw",
       "--without-pango",
       "--without-wmf",
-      "--disable-openmp",
+      "--enable-openmp",
     ]
     if OS.mac?
       args += [
         "--without-x",
-        "LDFLAGS=-lz",
+        # Work around "checking for clang option to support OpenMP... unsupported"
+        "ac_cv_prog_c_openmp=-Xpreprocessor -fopenmp",
+        "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
+        "LDFLAGS=-lomp -lz",
       ]
     end
 

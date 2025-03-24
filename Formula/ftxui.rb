@@ -2,8 +2,8 @@ class Ftxui < Formula
   desc ":computer: C++ Functional Terminal User Interface. :heart:"
   homepage "https://github.com/ArthurSonzogni/FTXUI"
   url "https://github.com/ArthurSonzogni/FTXUI.git",
-      revision: "15587dad01a9ef0e5e79d97a16adf414f60669a5"
-  version "5.0.0-86-g15587da"
+      revision: "5bf8ee819b25197aff56a170c100cb05a64e6714"
+  version "5.0.0-98-g5bf8ee8"
   license "MIT"
 
   bottle do
@@ -18,11 +18,11 @@ class Ftxui < Formula
 
   def install
     File.open("CMakeLists.txt", "a") do |file|
-      file.puts "set_target_properties(screen PROPERTIES VERSION 5.0.0.86)\n"
+      file.puts "set_target_properties(screen PROPERTIES VERSION 5.0.0.98)\n"
       file.puts "set_target_properties(screen PROPERTIES INSTALL_RPATH \"$ORIGIN/;@loader_path/\")\n"
-      file.puts "set_target_properties(dom PROPERTIES VERSION 5.0.0.86)\n"
+      file.puts "set_target_properties(dom PROPERTIES VERSION 5.0.0.98)\n"
       file.puts "set_target_properties(dom PROPERTIES INSTALL_RPATH \"$ORIGIN/;@loader_path/\")\n"
-      file.puts "set_target_properties(component PROPERTIES VERSION 5.0.0.86)\n"
+      file.puts "set_target_properties(component PROPERTIES VERSION 5.0.0.98)\n"
       file.puts "set_target_properties(component PROPERTIES INSTALL_RPATH \"$ORIGIN/;@loader_path/\")\n"
     end
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"

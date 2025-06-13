@@ -18,6 +18,6 @@ class WebcfaceWebui < Formula
   end
 
   test do
-    assert_predicate share/"webcface"/"dist"/"index.html", :exist?
+    assert_path_exists share/"webcface"/"dist"/"index.html"
   end
 end

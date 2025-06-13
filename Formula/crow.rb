@@ -3,8 +3,8 @@ class Crow < Formula
   homepage "https://crowcpp.org"
   url "https://github.com/na-trium-144/Crow.git",
     revision: "11bf7a0dfacc1df9f2fbfa5838828817ff58661b"
-  license "BSD-3-Clause"
   version "1.2.1.2-1"
+  license "BSD-3-Clause"
 
   depends_on "cmake" => :build
   depends_on "asio"

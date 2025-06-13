@@ -6,6 +6,14 @@ class Crow < Formula
   version "1.2.1.2-1"
   license "BSD-3-Clause"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/crow-1.2.1.2-1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ba98e37bd4fa05dcfb57250e1bef7f1b85339fd3036c8cfea4a4cf23325d040"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e9ad8113fbc66be839432105ba7600ad5aafab9c7c11df9faeefb01654c089a"
+    sha256 cellar: :any_skip_relocation, ventura:       "c41eac58afb797d1fce61cb70c3710d07732df4870cb887463bc2925313e4818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "059cca0d096b9bf83867294ee33f748cd379f5b7cfef4c45387e4dbb181bab37"
+  end
+
   depends_on "cmake" => :build
   depends_on "asio"
 

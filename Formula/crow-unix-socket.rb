@@ -18,7 +18,8 @@ class CrowUnixSocket < Formula
   depends_on "asio"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCROW_BUILD_EXAMPLES=OFF", "-DCROW_BUILD_TESTS=OFF"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+      "-DCROW_BUILD_EXAMPLES=OFF", "-DCROW_BUILD_TESTS=OFF", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "--build", "build", "-t", "install"
   end
 

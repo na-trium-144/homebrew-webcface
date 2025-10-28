@@ -5,6 +5,13 @@ class WebcfaceAT3 < Formula
   sha256 "8be84ca611fe765e604c1dcf87fc25268ed49cdc9162bcababfe1f368ef50c0c"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@3-3.2.0"
+    sha256 cellar: :any, arm64_sequoia: "ad881b07ec0743d966ffaa3aaa6148212facd44b6ad89b32b2c1c3b159566319"
+    sha256 cellar: :any, arm64_sonoma:  "1d5e0658f0a3f9847c0b19cc8309ef7e34c3c7c5e48e1ca8b9a73389f361ab2a"
+    sha256               x86_64_linux:  "37fa392253ac18700aa958984a32813edb2695d5ac928cdddfbdddc0bf9f8c8b"
+  end
+
   depends_on "asio" => :build
   depends_on "cli11" => :build
   depends_on "cmake" => [:build, :test]

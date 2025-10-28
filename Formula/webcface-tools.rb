@@ -1,17 +1,9 @@
 class WebcfaceTools < Formula
   desc "WebCFace Client Applications"
   homepage "https://github.com/na-trium-144/webcface-tools"
-  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "5d208d89e38cb3d0a29c898c9f788e953aa2e72b49180267bfcab70660a3a8c1"
+  url "https://github.com/na-trium-144/webcface-tools/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "d8ed95c69b3a914933492547dce7d9b55ebd7d094b959d47b42e0ab2878d02aa"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface-tools-2.3.0"
-    sha256 cellar: :any, arm64_sequoia: "31576c5c96f5cc213974e8e13cde41b6cfded14f947dc4b76a230fc4ab7b1afb"
-    sha256 cellar: :any, arm64_sonoma:  "4fc2a73658d62241fdeff80ce426183233faa5f40fb717693088ff653cc68582"
-    sha256 cellar: :any, ventura:       "9dd590968e698d339b751553914f7d063798669f3cf00470cf5525bd0f7e3d5d"
-    sha256               x86_64_linux:  "9312cf645fab8ac7e8493b4110e0f33ee86a1e1a9a2434149cc30f15ec01c10e"
-  end
 
   depends_on "cli11" => :build
   depends_on "cmake" => :build
@@ -23,7 +15,7 @@ class WebcfaceTools < Formula
   depends_on "spdlog"
   depends_on "tiny-process-library"
   depends_on "tomlplusplus"
-  depends_on "webcface@2"
+  depends_on "webcface@3"
 
   def install
     system "meson", "setup", "build", *std_meson_args

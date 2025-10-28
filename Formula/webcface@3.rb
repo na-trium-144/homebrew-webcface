@@ -1,17 +1,9 @@
-class WebcfaceAT2 < Formula
+class WebcfaceAT3 < Formula
   desc "Web-based Communication Framework & Dashboard-like UI"
   homepage "https://na-trium-144.github.io/webcface/"
-  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "ab0779eee607da7bfac08576a50537fd19c48cf4ebe3308f27f213ece05aacc4"
+  url "https://github.com/na-trium-144/webcface/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "8be84ca611fe765e604c1dcf87fc25268ed49cdc9162bcababfe1f368ef50c0c"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@2-2.9.0"
-    sha256 cellar: :any, arm64_sequoia: "bcef672e9af057c92f18486d7fd8f23cbbf32eb7bd1cea46d086403bb2fe854d"
-    sha256 cellar: :any, arm64_sonoma:  "8986d332e0d6ba3d5d75f52f97115cb38f7c2e4d57f34af420c07a9056f0bd78"
-    sha256 cellar: :any, ventura:       "32a782f9634afd165791b3ccacdec94c249e04a39f4db4696ae8b15b4c2ae2b9"
-    sha256               x86_64_linux:  "7c2422ee4d499a5fa15c3c7d68ab5669b368bb3da6e95875d23e0d15558994e3"
-  end
 
   depends_on "asio" => :build
   depends_on "cli11" => :build

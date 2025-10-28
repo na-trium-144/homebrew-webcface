@@ -21,7 +21,8 @@ class WebcfaceAT1 < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DWEBCFACE_DOWNLOAD_WEBUI=off",
-      "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF", "-DHOMEBREW_ALLOW_FETCHCONTENT=ON"
+      "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF", "-DHOMEBREW_ALLOW_FETCHCONTENT=ON",
+      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -49,7 +50,8 @@ EOS
         cli.sync();
       }
 EOS
-    system "cmake", "-B", "build", "-DCMAKE_PREFIX_PATH=#{prefix}"
+    system "cmake", "-B", "build", "-DCMAKE_PREFIX_PATH=#{prefix}",
+      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "--build", "build"
   end
 end

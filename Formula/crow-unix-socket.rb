@@ -45,7 +45,7 @@ class CrowUnixSocket < Formula
           app.unix_path("/tmp/test.sock").multithreaded().run();
       }
     EOS
-    system "cmake", "-B", "build"
+    system "cmake", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "--build", "build"
   end
 end

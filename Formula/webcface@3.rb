@@ -16,6 +16,7 @@ class WebcfaceAT3 < Formula
   depends_on "utf8cpp" => :build
   depends_on "curl"
   depends_on "fmt"
+  depends_on "glib"
   depends_on "spdlog"
   depends_on "vips-lite"
 
@@ -49,7 +50,7 @@ EOS
         cli.loopSync();
       }
 EOS
-    system "cmake", "-B", "build"
+    system "cmake", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "--build", "build"
   end
 end

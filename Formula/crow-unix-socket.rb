@@ -7,11 +7,11 @@ class CrowUnixSocket < Formula
   license "BSD-3-Clause"
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/crow-unix-socket-1.2.0-1_1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f62c024d6e177d61f24ed6c55c7a8c4438d893e060ce1a7d6d6d2d7644ab24a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15bab1482e2ce1faa858e9ec0706d789d1ba43bc2210f8618edf4db7ae103b51"
-    sha256 cellar: :any_skip_relocation, ventura:       "44e3987d97f4f5fe416b511bb2ac0987d5bcd11c81085489d4d1b16e123df7e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b20a523e26e3df654e2d3c8fb6d4b84cd68bb994d846513f9bfaf5c97e6283b"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/crow-unix-socket-1.2.0-2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec5cf7cc682d64593c42a7db4d197fa724492857fec21718660a015b70e9e3e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb5cba2fdca58dcec079c447fb3766d4a5526d7f9880d69851bc470263045468"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df10932758497259ae5c5654765172d65473279a93bcfacf92aea1103c5f0368"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8667be7e3048a726fa9c1dd563c917b5b2b28a602859bd40b85e6dd1147c7125"
   end
 
   depends_on "cmake" => [:build, :test]

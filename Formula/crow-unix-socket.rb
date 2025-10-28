@@ -2,10 +2,9 @@ class CrowUnixSocket < Formula
   desc "Fast and Easy to use microframework for the web"
   homepage "https://crowcpp.org/"
   url "https://github.com/na-trium-144/Crow.git",
-    revision: "5f5372ed80860dfcef788972bb0fd3972f715842"
-  version "1.2.0-1"
+    revision: "11bf7a0dfacc1df9f2fbfa5838828817ff58661b"
+  version "1.2.0-2"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/crow-unix-socket-1.2.0-1_1"

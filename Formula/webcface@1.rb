@@ -7,11 +7,11 @@ class WebcfaceAT1 < Formula
   revision 7
 
   bottle do
-    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@1-1.11.4_6"
-    sha256 cellar: :any,                 arm64_tahoe:   "09597912f8efac1769574ffc85de34f33bd37028d3f6ac7e09dedb7d26c98145"
-    sha256 cellar: :any,                 arm64_sequoia: "a8f632edae30fafb6955824eb550c0e31c7b9ad808c83d98fd68bf6affcef435"
-    sha256 cellar: :any,                 arm64_sonoma:  "f4e5cc167b6c480e45ca7f9ed52eea77d58d96e0fa7bd5951495a90db3925c00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0226c9edef98751248eb5698f10df560bffde908508da5b0304837ef6969f31"
+    root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@1-1.11.4_7"
+    sha256 cellar: :any,                 arm64_tahoe:   "b31f9686387544006f189b6045e6fa4277758cce77afde5563b8724650c7554a"
+    sha256 cellar: :any,                 arm64_sequoia: "d5052bdad5be0de29b71b9f1f6790ccb8d88e83914bc78faed395de9d763f81f"
+    sha256 cellar: :any,                 arm64_sonoma:  "f251214a509a79f5a38a250ba3e565bcbd2361799f01c67e13370421a4fd22bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b11c1975d3cf043074bc844541fa76630e78ce96c5313be9fdd9633c7f280c4d"
   end
 
   keg_only :versioned_formula

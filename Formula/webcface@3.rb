@@ -4,7 +4,6 @@ class WebcfaceAT3 < Formula
   url "https://github.com/na-trium-144/webcface/archive/refs/tags/v3.3.1.tar.gz"
   sha256 "80231719148b2a242bf2610abd02d4c6c06f4779e4a4c65a688e112da355c4bd"
   license "MIT"
-  revision 1
 
   bottle do
     root_url "https://github.com/na-trium-144/homebrew-webcface/releases/download/webcface@3-3.2.0_1"

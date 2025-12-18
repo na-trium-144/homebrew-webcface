@@ -16,7 +16,7 @@ class WebcfaceAT3 < Formula
   depends_on "asio" => :build
   depends_on "cli11" => :build
   depends_on "cmake" => [:build, :test]
-  depends_on "crow-unix-socket" => :build
+  depends_on "crow" => :build
   depends_on "meson" => :build
   depends_on "msgpack-cxx" => :build
   depends_on "ninja" => :build
